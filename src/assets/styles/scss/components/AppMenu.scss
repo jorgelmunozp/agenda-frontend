@@ -1,0 +1,57 @@
+/* === Estilos base del menú === */
+.bm-burger-button {
+  position: fixed;
+  width: 28px;
+  height: 22px;
+  right: 25px;
+  top: 25px;
+}
+
+/* color del ícono hamburguesa */
+.bm-burger-bars {
+  background: #333;
+}
+
+/* efecto al pasar el mouse */
+.bm-burger-bars-hover {
+  background: #555;
+}
+
+/* fondo del menú */
+.bm-menu {
+  background: #1e1e1e;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.2em;
+}
+
+/* cross (botón X de cerrar) */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+.bm-cross {
+  background: #fff;
+}
+
+/* overlay del fondo oscuro */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* items del menú */
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  padding: 12px 0;
+  text-decoration: none;
+  font-family: 'Itim', cursive;
+  transition: all 0.3s ease;
+}
+
+.menu-item:hover {
+  color: #ffcc00;
+  transform: translateX(5px);
+}
