@@ -32,18 +32,16 @@ export const Login = () => {
             sessionStorage.setItem('token', response.data.token);
             sessionStorage.setItem('userId', response.data.id);
 
-                  const action = {
-        type: types.login,
-        payload: { name: username }
-      }
-      dispatch(action);
+            const action = {
+                type: types.login,
+                payload: { name: username }
+            }
+            dispatch(action);
   
-      const lastPath = localStorage.getItem('lastPath') || '/';
-      navigate(lastPath, {
-        replace: true
-      });
-
-            // navigate('/home'); 
+            const lastPath = localStorage.getItem('lastPath') || '/';
+            navigate(lastPath, {
+                replace: true
+            });
         }
 
     } catch (error) {
@@ -60,7 +58,7 @@ export const Login = () => {
   };
 
   const forgotPassword = () => {
-    navigate('/password-reset');
+    navigate('/password-recover');
   };
 
   return (

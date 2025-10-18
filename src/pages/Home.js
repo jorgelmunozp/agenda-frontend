@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Title } from '../components/Title';
 import { Input } from '../components/Input';
 import { FiStar, FiPlus, FiSearch } from "react-icons/fi";
@@ -88,8 +89,16 @@ import '../assets/styles/scss/Home.scss';
     });
   }
 
+
+
+  const handleOpenTask = (navigate, taskId) => {
+    navigate(`/users/${userId}/tasks/${taskId}`);
+  }
+
+
 // ********** Home Page ********** //
 export const Home = () => {
+  const navigate = useNavigate();
   const [tasks, setTasks] = useState([]);
   const [queryTaskName, setQueryTaskName] = useState("");
   const [pagination, setPagination] = useState({
@@ -148,7 +157,7 @@ export const Home = () => {
               <div key={index} className='home-list'>
                 <FiStar /> 
                 <>
-                  <button className='home-button-task'>
+                  <button onClick={() => handleOpenTask(navigate,task.id)} className='home-button-task'>
                     <li>{task.task.name}</li>
                     <li><span>{task.task.date} - {task.task.time}</span></li>
                   </button>
