@@ -1,0 +1,22 @@
+@import 'Colors';
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .input-icon {
+    position: absolute;
+    left: 10px;
+    font-size: 1.5rem;
+    color: $black-color
+  }
+
+  input {
+    padding-left: 50px; // deja espacio para el icono
+    height: 40px;
+    width: 100%;
+    border-radius: 8px;
+  }
+
+}

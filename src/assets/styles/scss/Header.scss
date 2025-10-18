@@ -1,0 +1,17 @@
+@import 'Colors';
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
+
+.header {
+    background-color: $bg-color;
+    color: white;
+    height: 15vh;
+    font-family: 'Carter One', cursive;
+    font-weight: 900;
+    padding-top: 10px;
+    text-align: center;
+    border-bottom: 12.5px solid darken($bg-color, 90%);
+}
+
+.u-letter {
+    color: $u-color;
+}

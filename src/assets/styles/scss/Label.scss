@@ -1,0 +1,16 @@
+@import 'Colors';
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+.label {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    span {
+        font-family: 'Itim';
+        font-weight: 300;
+        color: $white-color;
+        letter-spacing: 2px;
+        margin: 0;
+    }
+}
