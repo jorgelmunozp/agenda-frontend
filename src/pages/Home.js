@@ -135,7 +135,7 @@ export const Home = () => {
         setPagination(response.data.meta || pagination);
 
       } catch (error) {
-        console.error('Error fetching tasks:', error.response?.data || error.message);
+        console.error('Error fetching data:', error.response?.data || error.message);
         setTasks([]);
       }
     };
