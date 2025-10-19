@@ -1,10 +1,10 @@
 # 🧑‍💻 Agenda‑Frontend  
 
-![React](https://img.shields.io/badge/React‑18.x‑61DAFB?logo=react)  
-![Vite](https://img.shields.io/badge/Vite‑4.x‑646CFF?logo=vite)  
-![Tailwind CSS](https://img.shields.io/badge/Tailwind CSS‑3.x‑38B2AC?logo=tailwindcss)  
-![JWT](https://img.shields.io/badge/Auth‑JWT‑orange?logo=jsonwebtokens)  
-![License](https://img.shields.io/badge/License‑MIT‑yellow.svg)  
+![React](https://img.shields.io/badge/React-18.x-61DAFB?logo=react)
+![Vite](https://img.shields.io/badge/Vite-4.x-646CFF?logo=vite)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.x-38B2AC?logo=tailwindcss)
+![JWT](https://img.shields.io/badge/Auth-JWT-orange?logo=jsonwebtokens)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)  
 
 Interfaz de usuario (frontend) para la gestión de agenda médica: pacientes, doctores y citas.  
 Construida con **React + Vite + Tailwind CSS**, consumiendo una API REST (backend), con autenticación **JWT** y diseño responsivo.
