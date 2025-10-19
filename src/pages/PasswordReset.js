@@ -15,13 +15,18 @@ export const PasswordReset = () => {
 
   const handleReset = async () => {
     try {
-        const response = await api.patch(`/password/update/${token}`, {
-            password,
+        const response = await api.patch('/password/update', {
+          token,
+          newPassword: password,
         });
 
         // Si es exitoso, redirige a home
         if (200 <= response.status && response.status <= 299) { 
-            console.log(response.data);
+            console.log(response.data.message);
+            Swal.fire({
+                text: response.data.message,
+                icon: "success"        
+            });
         }
 
     } catch (error) {
