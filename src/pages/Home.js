@@ -7,7 +7,7 @@ import { FiStar, FiPlus, FiSearch } from "react-icons/fi";
 import Swal from 'sweetalert2';
 import '../assets/styles/scss/pages/Home.scss';
 
-// ********** Función para crear una nueva tarea ********** //
+// ********** Crear una nueva tarea ********** //
 const handleNewTask = () => {
   const userId = sessionStorage.getItem('userId');
 
@@ -141,10 +141,12 @@ export const Home = () => {
     fetchTasks();
   }, [pagination, navigate, userId]);
 
+// ********** Abrir una tarea ********** //
   const handleOpenTask = (taskId) => {
     navigate(`/users/${userId}/tasks/${taskId}`);
   };
 
+  // ********** Paginación ********** //
   const handleNextPage = () => {
     if (pagination.page < pagination.last_page) {
       setPagination(prev => ({ ...prev, page: prev.page + 1 }));
