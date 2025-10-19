@@ -9,6 +9,7 @@
   background-color: $bg-color;
   padding-left: 20px;
   padding-right: 20px;
+  padding-bottom: 40px;
 }
 
 .contact-form {
@@ -23,10 +24,14 @@
   padding-left: 5vw;
   padding-right: 5vw;
   padding-top: 20px;
+  padding-bottom: 30px;
+
+  @include screen-sm { 
+    padding-left: 1vw;
+    padding-right: 1vw; 
+  }
 
   .contact-content { 
-
-
     div {
       display: grid;
 

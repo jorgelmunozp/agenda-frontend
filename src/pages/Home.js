@@ -168,13 +168,7 @@ export const Home = () => {
         </div>
 
         <div className='home-search'>
-          <Input
-            Icon={FiSearch}
-            type='search'
-            placeholder='Buscar tarea...'
-            value={queryTaskName}
-            setState={setQueryTaskName}
-          />
+          <Input Icon={FiSearch} type='search' placeholder='Buscar tarea...' value={queryTaskName} setState={setQueryTaskName} />
         </div>
 
         <ul>
@@ -183,10 +177,7 @@ export const Home = () => {
             .map((task, index) => (
               <div key={index} className='home-list'>
                 <FiStar />
-                <button
-                  onClick={() => handleOpenTask(task.id)}
-                  className='home-button-task'
-                >
+                <button onClick={() => handleOpenTask(task.id)} className='home-button-task' >
                   <li>{task.task.name}</li>
                   <li><span>{task.task.date} - {task.task.time}</span></li>
                 </button>
@@ -196,22 +187,14 @@ export const Home = () => {
 
         {/* ----- Controles de paginación ----- */}
         <div className="home-pagination">
-          <button
-            disabled={pagination.page === 1}
-            onClick={handlePrevPage}
-            className='home-page-btn'
-          >
-            ← Anterior
+          <button disabled={pagination.page === 1} onClick={handlePrevPage} className='home-page-btn' >
+            ← <span className='home-pagination-label'>Anterior</span>
           </button>
           <span>
             Página {pagination.page} de {pagination.last_page}
           </span>
-          <button
-            disabled={pagination.page === pagination.last_page}
-            onClick={handleNextPage}
-            className='home-page-btn'
-          >
-            Siguiente →
+          <button disabled={pagination.page === pagination.last_page} onClick={handleNextPage} className='home-page-btn' >
+            <span className='home-pagination-label'>Siguiente</span> →
           </button>
         </div>
       </div>

@@ -9,6 +9,7 @@
   background-color: $bg-color;
   padding-left: 20px;
   padding-right: 20px;
+  padding-bottom: 40px;
 }
 
 .aboutUs-form {
@@ -17,7 +18,7 @@
   border-radius: 8px;
   color: $white-color;
   background-color: $bg-color;
-  
+
   text-align: justify;
   text-align-last: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -25,7 +26,13 @@
   padding-left: 5vw;
   padding-right: 5vw;
   padding-top: 20px;
+  padding-bottom: 30px;
 
+  @include screen-sm { 
+    padding-left: 1vw;
+    padding-right: 1vw; 
+  }
+  
   .aboutUs-content { 
       font-size: calc(1rem + .5vw);
 
