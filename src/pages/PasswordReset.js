@@ -27,8 +27,8 @@ export const PasswordReset = () => {
                 text: response.data.message,
                 icon: "success"        
             });
+            navigate("/login")
         }
-
     } catch (error) {
         Swal.fire({
             text: error.response?.data.error.message || error.message,
