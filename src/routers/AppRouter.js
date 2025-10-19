@@ -4,8 +4,6 @@ import { Login } from '../pages/Login.js';
 import { Register } from '../pages/Register.js';
 import { PasswordRecover } from '../pages/PasswordRecover.js';
 import { PasswordReset } from '../pages/PasswordReset.js';
-
-// import { Navbar } from "../components/menu/Navbar.js";
 import { PublicRoute } from "./PublicRoute.js";
 import { PrivateRoute } from "./PrivateRoute.js";
 import { DashboardRoutes } from "./DashboardRoutes.js";
