@@ -141,7 +141,7 @@ export const Home = () => {
     };
 
     fetchTasks();
-  }, [pagination.page, pagination.limit, navigate, userId]);
+  }, [pagination, navigate, userId]);
 
   const handleOpenTask = (taskId) => {
     navigate(`/users/${userId}/tasks/${taskId}`);
