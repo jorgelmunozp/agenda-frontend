@@ -1,4 +1,4 @@
-@import 'Colors';
+@import '../mixins/colors';
 
 .input-with-icon {
   position: relative;
@@ -14,8 +14,12 @@
 
   input {
     padding-left: 50px; // deja espacio para el icono
+    padding-top: 10px;
+    padding-bottom: 10px;
     height: 40px;
     width: 100%;
+    font-size: 24px;
+    text-align: center;
     border-radius: 8px;
   }
 

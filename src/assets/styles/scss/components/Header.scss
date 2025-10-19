@@ -1,5 +1,4 @@
-@import 'Colors';
-@import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
+@import '../mixins/colors';
 
 .header {
     background-color: $bg-color;

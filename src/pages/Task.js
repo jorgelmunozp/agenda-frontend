@@ -4,8 +4,7 @@ import { api } from '../services/api';
 import { Label } from '../components/Label';
 import { Title } from '../components/Title';
 import { FiStar } from "react-icons/fi";
-
-import '../assets/styles/scss/Task.scss';
+import '../assets/styles/scss/pages/Task.scss';
 
 export const Task = () => {
   const navigate = useNavigate();

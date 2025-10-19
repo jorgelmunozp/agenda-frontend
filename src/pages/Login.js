@@ -9,7 +9,7 @@ import { PiUserCircleFill } from "react-icons/pi";
 import { FiLock } from "react-icons/fi";
 import { api } from '../services/api';
 import Swal from 'sweetalert2';
-import '../assets/styles/scss/Login.scss';
+import '../assets/styles/scss/pages/Login.scss';
 
 export const Login = () => {
   const navigate = useNavigate();

@@ -1,6 +1,7 @@
-@import 'Colors';
+@import '../mixins/colors';
+@import '../mixins/screen';
 
-.create-container {
+.contact-container {
   display: flex;
   justify-content: center;
   height: 100%;
@@ -10,7 +11,7 @@
   padding-right: 20px;
 }
 
-.create-form {
+.contact-form {
   display: flex;
   flex-direction: column;
   border-radius: 8px;
@@ -23,6 +24,20 @@
   padding-right: 5vw;
   padding-top: 20px;
 
+  .contact-content { 
+
+
+    div {
+      display: grid;
+
+      font-size: calc(1.5rem + .5vw);
+
+      @include desktop { font-size: calc(2rem + .5vw); }  
+      @include screen-md { font-size: calc(1.5rem + .5vw); }  
+      @include screen-sm { font-size: calc(1rem + .5vw); }
+    }
+  }
+
   h2 {
     text-align: center;
     margin-bottom: 30px;
@@ -30,7 +45,7 @@
     color: $white-color;
   }
 
-  .create-input {
+  .contact-input {
     margin-bottom: 20px;
     padding: 12px;
     font-size: 16px;
@@ -43,15 +58,17 @@
     }
   }
 
-  .create-button {
-    font-size: 16px;
+  .contact-button {
+    font-size: 22px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     margin-bottom: 10px;
     border: 1px solid #2C2C2C;
     border-radius: 20px;
     cursor: pointer;
     color: #fff;
     background-color: $button-color;
-    padding: 12px;
+    padding: 16px 12px;
     transition: 0.2s;
 
     &:hover {
@@ -59,7 +76,7 @@
     }
   }
 
-  .create-link-button {
+  .contact-link-button {
     background-color: $black-color;
     border: 1px solid #C00F0C;
     border-radius: 20px;

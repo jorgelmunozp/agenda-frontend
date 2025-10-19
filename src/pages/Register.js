@@ -7,7 +7,7 @@ import { FiUser, FiAtSign, FiLock } from "react-icons/fi";
 import { PiUserCircleFill } from "react-icons/pi";
 import { api } from '../services/api';
 import Swal from 'sweetalert2';
-import '../assets/styles/scss/Register.scss';
+import '../assets/styles/scss/pages/Register.scss';
 
 export const Register = () => {
   const navigate = useNavigate();

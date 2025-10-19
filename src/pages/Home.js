@@ -5,7 +5,7 @@ import { Title } from '../components/Title';
 import { Input } from '../components/Input';
 import { FiStar, FiPlus, FiSearch } from "react-icons/fi";
 import Swal from 'sweetalert2';
-import '../assets/styles/scss/Home.scss';
+import '../assets/styles/scss/pages/Home.scss';
 
  const userId = sessionStorage.getItem('userId');    // Get user Id from sessionStorage
 

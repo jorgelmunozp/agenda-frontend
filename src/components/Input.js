@@ -1,4 +1,4 @@
-import '../assets/styles/scss/Input.scss';
+import '../assets/styles/scss/components/Input.scss';
 
 export const Input = ({ Icon, type='text', value, placeholder='', setState }) => {
   return (

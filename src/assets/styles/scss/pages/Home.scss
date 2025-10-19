@@ -1,4 +1,5 @@
-@import 'Colors';
+@import '../mixins/colors';
+@import '../mixins/screen';
 
 .home-container {
   display: flex;
@@ -69,7 +70,7 @@
   }
 
   .home-button {
-    font-size: 16px;
+    font-size: 22px;
     margin-bottom: 10px;
     border: 1px solid #2C2C2C;
     border-radius: 20px;
@@ -111,13 +112,17 @@
     .home-button-task {
       background-color: transparent;
       border: none;
-      font-size: 1.5rem;
       text-align: justify;
       width: 100%;
       margin-left: 30px;
       padding-top: 5px;
       padding-bottom: 5px;
       cursor: pointer;
+      font-size: calc(1.75rem + .5vw);
+
+      @include desktop { font-size: calc(2rem + .5vw); }  
+      @include screen-md { font-size: calc(1.75rem + .5vw); }  
+      @include screen-sm { font-size: calc(1.325rem + .5vw); }
 
       &:hover {
         box-shadow:  5px 5px 10px black;
@@ -126,7 +131,11 @@
 
       span {
         color: $lightgray-color;
-        font-size: 1.25rem;
+        font-size: calc(1.5rem + .5vw);
+
+        @include desktop { font-size: calc(1.75rem + .5vw); }  
+        @include screen-md { font-size: calc(1.5rem + .5vw); }  
+        @include screen-sm { font-size: calc(1rem + .5vw); }
       }
     }
   }
@@ -142,4 +151,5 @@
   border-radius: 8px;
   margin-left: 35px;
   margin-right: 35px;
+  padding: 16px 12px;
 }

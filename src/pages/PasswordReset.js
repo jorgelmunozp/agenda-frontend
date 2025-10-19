@@ -6,7 +6,7 @@ import { Label } from '../components/Label';
 import { FiLock } from "react-icons/fi";
 import { api } from '../services/api';
 import Swal from 'sweetalert2';
-import '../assets/styles/scss/PasswordCreate.scss';
+import '../assets/styles/scss/pages/PasswordReset.scss';
 
 export const PasswordReset = () => {
   const navigate = useNavigate();
@@ -38,18 +38,18 @@ export const PasswordReset = () => {
   };
 
   return (
-        <div className="create-container">
-          <div className="create-form">
+        <div className="reset-container">
+          <div className="reset-form">
             <Title title="CREAR NUEVA CONTRASEÑA" />
   
             <Label text="Contraseña" />
             <Input Icon={FiLock} type={'password'} value={password} setState={setPassword} />
     
             <br />
-            <button className="create-button" onClick={handleReset}>
+            <button className="reset-button" onClick={handleReset}>
               Confirmar
             </button>
-            <button className="create-button" onClick={handleCancel}>
+            <button className="reset-button" onClick={handleCancel}>
               Cancelar
             </button>
           </div>

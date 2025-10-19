@@ -1,32 +1,36 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { slide as Menu } from "react-burger-menu";
-import { FiHome, FiUser, FiLogOut } from "react-icons/fi";
 import { AuthContext } from '../auth/authContext.js';
+import { types } from '../types/types.js';
+import { slide as Menu } from "react-burger-menu";
+import { FiHome, FiUser, FiPhone, FiLogOut } from "react-icons/fi";
 import "../assets/styles/scss/components/AppMenu.scss";
 
 export const AppMenu = () => {
-      const { user, dispatch } = useContext(AuthContext);
+    const { dispatch } = useContext(AuthContext);
     const navigate = useNavigate();
+
+    const iconColor = '#5c3b99';
 
     const handleLogout = () => {
         dispatch({ type: types.logout });
-        navigate(urlBaseFrontend, { replace: true });
+        navigate("/", { replace: true });
     }
 
   return (
     <Menu left>
+      <hr className='bm-hr' />
       <a className="menu-item" href="/home">
-        <FiHome /> Tareas
+        <FiHome color={iconColor} /> Tareas
       </a>
       <a className="menu-item" href="/about-us">
-        <FiUser /> Nosotros
+        <FiUser color={iconColor} /> Nosotros
       </a>
       <a className="menu-item" href="/contact">
-        <FiLogOut /> Contacto
+        <FiPhone color={iconColor} /> Contacto
       </a>
-      <a className="menu-item" href="/login">
-        <FiLogOut /> Cerrar sesión
+      <a className="menu-item" href="/login" onClick={handleLogout}>
+        <FiLogOut color={iconColor} /> Cerrar sesión
       </a>
     </Menu>
   );

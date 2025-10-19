@@ -1,4 +1,4 @@
-import '../assets/styles/scss/Title.scss';
+import '../assets/styles/scss/components/Title.scss';
 
 export const Title = ({ title }) => {
   return (

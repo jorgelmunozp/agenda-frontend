@@ -1,17 +1,16 @@
 import { Title } from '../components/Title';
 import { Label } from '../components/Label';
+import '../assets/styles/scss/pages/AboutUs.scss';
 
 export const AboutUs = () => {
   return (
-        <div className="home-container">
-          <div className="home-form">
-            <div className='home-header'>
-              <Title title="NOSOTROS" />
-            </div>
-            <div>       
-              <span>Somos una app pensada para estudiantes</span>
-              <span>Te ayudamos a organizar tus horarios y tareas diarias en un solo lugar</span>
-              <span>Nuestro objetivo es facilitar tu día a día y ayudarte a aprovechar mejor tu tiempo</span>
+        <div className="aboutUs-container">
+          <div className="aboutUs-form">
+            <Title title="NOSOTROS" />
+            <div className='aboutUs-content'>       
+              <p>Somos una app pensada para estudiantes</p>
+              <p>Te ayudamos a organizar tus horarios y tareas diarias en un solo lugar</p>
+              <p>Nuestro objetivo es facilitar tu día a día y ayudarte a aprovechar mejor tu tiempo</p>
               <Label text="Organiza tu vida, mejora tu estudio" />
             </div>
           </div>

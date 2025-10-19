@@ -1,4 +1,5 @@
-@import 'Colors';
+@import '../mixins/colors';
+@import '../mixins/screen';
 
 .task-container {
   display: flex;
@@ -73,8 +74,12 @@
     .task-message {
       text-align: justify;
       text-align-last: center;
-      font-size: 1.25rem;
       font-style: italic;
+      font-size: calc(1.25rem + .5vw);
+
+      @include desktop { font-size: calc(2rem + .5vw); }  
+      @include screen-md { font-size: calc(1.5rem + .5vw); }  
+      @include screen-sm { font-size: calc(1.125rem + .5vw); }
     }
   }
 
@@ -92,14 +97,15 @@
   }
 
   .task-button {
-    font-size: 16px;
+    font-size: 22px;
+    margin-top: 10px;
     margin-bottom: 10px;
     border: 1px solid #2C2C2C;
     border-radius: 20px;
     cursor: pointer;
     color: #fff;
     background-color: $button-color;
-    padding: 12px;
+    padding: 16px 12px;
     transition: 0.2s;
 
     &:hover {

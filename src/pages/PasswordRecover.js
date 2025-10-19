@@ -6,7 +6,7 @@ import { Label } from '../components/Label';
 import { FiAtSign } from "react-icons/fi";
 import { api } from '../services/api';
 import Swal from 'sweetalert2';
-import '../assets/styles/scss/PasswordRecover.scss';
+import '../assets/styles/scss/pages/PasswordRecover.scss';
 
 export const PasswordRecover = () => {
   const navigate = useNavigate();

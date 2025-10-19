@@ -1,4 +1,4 @@
-import '../assets/styles/scss/Label.scss';
+import '../assets/styles/scss/components/Label.scss';
 
 export const Label = ({ text='' }) => {
   return (
