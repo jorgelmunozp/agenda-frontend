@@ -129,8 +129,6 @@ export const Home = () => {
         const response = await api.get(
           `/users/${userId}/tasks?page=${pagination.page}&limit=${pagination.limit}`
         );
-
-        console.log('Response.data:', response.data);
         setTasks(response.data.data || []);
         setPagination(response.data.meta || pagination);
 
