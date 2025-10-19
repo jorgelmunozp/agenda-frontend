@@ -141,7 +141,6 @@
   }
 
 
-
 }
 
 .home-accept-btn {
@@ -152,4 +151,45 @@
   margin-left: 35px;
   margin-right: 35px;
   padding: 16px 12px;
+}
+
+
+
+
+// -------- PAGINACIÓN -------- //
+.home-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  font-family: 'Itim', cursive;
+
+  span {
+    font-size: 1rem;
+    color: $lightgray-color;
+  }
+
+  .home-page-btn {
+    background-color: $button-color;
+    color: $lightgray-color;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 0.5rem 1.2rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #125ca0;
+      transform: translateY(-2px);
+    }
+
+    &:disabled {
+      background-color: transparent;
+      color: #f7f7f7;
+      cursor: not-allowed;
+      transform: none;
+    }
+  }
 }

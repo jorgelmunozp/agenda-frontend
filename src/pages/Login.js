@@ -27,8 +27,7 @@ export const Login = () => {
 
         // Si es exitoso, redirige a home
         if (200 <= response.status && response.status <= 299) { 
-            console.log(response.data);
-                        // Guarda en sessionStorage
+            // Guarda en sessionStorage
             sessionStorage.setItem('token', response.data.token);
             sessionStorage.setItem('userId', response.data.id);
 
