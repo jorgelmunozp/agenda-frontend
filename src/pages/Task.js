@@ -17,7 +17,7 @@ export const Task = () => {
         const response = await api.get(`/users/${userId}/tasks/${taskId}`);
         setTask(response.data.task);
       } catch (error) {
-        console.error('Error fetching tasks:', error);
+        console.error('Error fetching data:', error);
       }
     };
 
