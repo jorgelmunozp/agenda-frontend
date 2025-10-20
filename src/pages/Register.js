@@ -32,9 +32,31 @@ const handleRegister = async () => {
         }
 
     } catch (error) {
-        Swal.fire({ text: error.response?.data.error.message || error.message, icon: "error" });
         console.error('Error creating user: ', error.response?.data || error.message);
-    }
+
+        // Extraer los mensajes del error
+        const messages = error.response?.data?.error?.message || [error.message];
+
+        // Generar HTML con viñetas
+        let errorHtml = '<ul style="padding-left: 20px; text-align: justify; margin: 0;">';
+        for (const msg of messages) {
+          errorHtml += `<li style="margin-bottom: 6px; color: #d33; font-family: Poppins, sans-serif;">${msg}</li>`;
+        }
+        errorHtml += '</ul>';
+
+        // Mostrar el popup
+        Swal.fire({
+          title: 'Faltan Datos',
+          html: errorHtml,
+          icon: 'error',
+          confirmButtonText: 'Aceptar',
+          customClass: {
+            popup: 'home-swal-popup',
+            title: 'swal-title',
+            content: 'swal-content'
+          }
+        });
+      }
   };
 
   const handleCancel = () => {
