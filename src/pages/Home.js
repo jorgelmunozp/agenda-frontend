@@ -99,7 +99,7 @@ export const Home = () => {
   const [tasks, setTasks] = useState([]);
   const [queryTaskName, setQueryTaskName] = useState("");
   const [pagination, setPagination] = useState({
-    last_page: 1,
+    last_page: 2,
     limit: 5,
     page: 1,
     total: 0,
@@ -130,8 +130,9 @@ export const Home = () => {
           `/users/${userId}/tasks?page=${pagination.page}&limit=${pagination.limit}`
         );
         setTasks(response.data.data || []);
-        setPagination(response.data.meta || pagination);
-
+        if (JSON.stringify(response.data.meta) !== JSON.stringify(pagination)) {
+          setPagination(response.data.meta || pagination);
+        }
       } catch (error) {
         console.error('Error fetching data:', error.response?.data || error.message);
         setTasks([]);
