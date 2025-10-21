@@ -1,0 +1,15 @@
+@import '../../assets/styles/scss/mixins/colors';
+
+.label {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    span {
+        font-family: 'Itim';
+        font-size: 1.25rem;
+        font-weight: 300;
+        color: $white-color;
+        margin: 0;
+    }
+}

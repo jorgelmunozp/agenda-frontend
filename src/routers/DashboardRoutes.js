@@ -1,11 +1,9 @@
 import { Routes, Route } from "react-router-dom";
-import { AppMenu } from '../components/AppMenu.js';
-import { Home } from '../pages/Home.js';
-import { Task } from '../pages/Task.js'
-import { AboutUs } from '../pages/AboutUs.js';
-import { Contact } from '../pages/Contact.js';
-
-const urlBaseFrontend = process.env.REACT_APP_FRONTEND_URL;
+import { AppMenu } from '../components/menu/AppMenu.js';
+import { Home } from '../modules/home/Home.js';
+import { Task } from '../modules/task/Task.js'
+import { AboutUs } from '../modules/core/aboutus/AboutUs.js';
+import { Contact } from '../modules/core/contact/Contact.js';
 
 export const DashboardRoutes = () => {
   return (

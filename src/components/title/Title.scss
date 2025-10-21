@@ -1,0 +1,13 @@
+@import '../../assets/styles/scss/mixins/colors';
+
+.title {
+    text-align: center;
+    padding-top: 20px;
+
+    h1 {
+        font-family: 'Itim';
+        font-weight: 300;
+        color: $white-color;
+        margin: 0;
+    }
+}
