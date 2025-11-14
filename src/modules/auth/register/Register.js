@@ -9,6 +9,8 @@ import { api } from '../../../services/api/api';
 import Swal from 'sweetalert2';
 import './Register.scss';
 
+const usersEndpoint = process.env.REACT_APP_ENDPOINT_USERS;
+
 export const Register = () => {
   const navigate = useNavigate();
   const [name, setName] = useState('');
@@ -18,7 +20,7 @@ export const Register = () => {
   
 const handleRegister = async () => {
     try {
-        const response = await api.post('/users', {
+        const response = await api.post(usersEndpoint, {
             name,
             email,
             username,

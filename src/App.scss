@@ -1,46 +1,49 @@
 @import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+@import './assets/styles/scss/mixins/colors.scss';
 
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+// Sweetalert button container
+.swal2-actions {
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+  // Loader Global
+.loader-overlay,
+.loader-overlay.loader-overlay--home {
+  position: fixed;
+  inset: 0;
+  background: $bg-color;
+  display: flex !important;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 1.2rem;
+  z-index: 9999;
+  text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+.loader-overlay .loader-spinner,
+.loader-overlay--home .loader-spinner {
+  width: 60px;
+  height: 60px;
+  border: 5px solid $black-color ;
+  border-top-color: $white-color;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.loader-overlay .loader-text,
+.loader-overlay--home .loader-text {
+  margin-top: 0;
+  font-size: 1.1rem;
+  color: $white-color;
 }
 
-  // Sweetalert button container
-  .swal2-actions {
-    width: 100%;
-  }
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

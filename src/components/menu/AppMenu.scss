@@ -1,12 +1,22 @@
 @import '../../assets/styles/scss/mixins/colors';
+@import '../../assets/styles/scss/mixins/screen';
 
 /* === Estilos base del menú === */
+.bm-menu-wrap {
+  width: 40% !important;
+
+  @include screen-md { width: 60% !important; }
+  @include screen-sm { width: 90% !important; }
+}
+
+/* === Botón Hamburguesa === */
 .bm-burger-button {
   position: fixed;
-  width: 28px;
-  height: 22px;
-  top: 40px;
-  left: 25px;
+  width: 1.25rem;
+  height: 0.9rem;
+  top: 5.5vh;
+  left: 20px;
+  filter: drop-shadow(0px 1px 0px #000)
 }
 
 /* color del ícono hamburguesa */
@@ -24,7 +34,7 @@
     color: $bg-color;
 }
 
-/* fondo del menú */
+/* === fondo del menú === */
 .bm-menu {
   background: #cccccc;
   padding: 2.5em 1.5em 0;

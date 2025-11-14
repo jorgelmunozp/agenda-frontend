@@ -15,7 +15,7 @@ export const AppRouter = () => {
       <Routes>
         {/* Rutas públicas */}
         <Route path="*" element={<PublicRoute><Login /></PublicRoute>} />
-        <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
+        <Route path="/login/*" element={<PublicRoute><Login /></PublicRoute>} />
         <Route path="/register" element={<PublicRoute><Register /></PublicRoute>} />
         <Route path="/password-recover" element={<PublicRoute><PasswordRecover /></PublicRoute>} />
         <Route path="/password-reset/:token" element={<PublicRoute><PasswordReset /></PublicRoute>} />
