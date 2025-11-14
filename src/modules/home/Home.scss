@@ -1,17 +1,6 @@
 @import '../../assets/styles/scss/mixins/colors';
 @import '../../assets/styles/scss/mixins/screen';
 
-.home-container {
-  display: flex;
-  justify-content: center;
-  height: 100%;
-  min-height: 85vh;
-  background-color: $bg-color;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 40px;
-}
-
 .home-form {
   display: flex;
   flex-direction: column;
@@ -121,18 +110,14 @@
       filter: drop-shadow(0px 1px 0px #000);
 
       li {
-        text-shadow: 0px 1px 0px #fff8;
+        text-shadow: 0px 1px 0px #fff9;
+        font-weight: 600;
         font-size: calc(1.5rem + .5vw);
 
         @include desktop { font-size: calc(1.25rem + .5vw); }  
         @include screen-md { font-size: calc(1.1rem + .5vw); }  
-        @include screen-sm { font-size: calc(1rem + .5vw); }
+        @include screen-sm { font-size: calc(1.125rem + .5vw); }
       }
-
-
-      @include desktop { font-size: calc(1.75rem + .5vw); }  
-      @include screen-md { font-size: calc(1.5rem + .5vw); }  
-      @include screen-sm { font-size: calc(1.325rem + .5vw); }
 
       &:hover {
         box-shadow:  2px 2px 4px black;
@@ -147,65 +132,10 @@
 
         @include desktop { font-size: calc(1.15rem + .5vw); }  
         @include screen-md { font-size: calc(1rem + .5vw); }  
-        @include screen-sm { font-size: calc(1rem + .5vw); }
+        @include screen-sm { font-size: calc(0.85rem + .5vw); }
       }
     }
   }
 
-
-}
-
-.home-accept-btn {
-  background-color: $black-color;
-  color: $white-color;
-  width: 100%;
-  border-radius: 8px;
-  margin-left: 35px;
-  margin-right: 35px;
-  padding: 16px 12px;
-}
-
-// -------- PAGINACIÓN -------- //
-.home-pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 2rem;
-  font-family: 'Itim', cursive;
-
-  span {
-    font-size: 1rem;
-    color: $lightgray-color;
-  }
-
-  .home-page-btn {
-    background-color: $button-color;
-    color: $lightgray-color;
-    border: none;
-    border-radius: 1.5rem;
-    padding: 0.5rem 1.2rem;
-    cursor: pointer;
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
-
-    &:hover {
-      background-color: $u-color;
-      transform: translateY(-2px);
-    }
-
-    &:disabled {
-      background-color: transparent;
-      color: #f7f7f7;
-      cursor: not-allowed;
-      transform: none;
-    }
-  }
-
-  .home-pagination-label {
-    display:inline-block;
-
-    @include screen-sm { display: none; }
-  }
 
 }

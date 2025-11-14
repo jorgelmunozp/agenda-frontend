@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react';
 import { FiPlus, FiStar } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 import { Title } from '../../components/title/Title';
+import { Pagination } from '../../components/pagination/Pagination';
 import { api } from '../../services/api/api';
-import { AddTask } from './AddTask';
+import { AddTask } from '../task/AddTask';
 import './Home.scss';
 
 const usersEndpoint = process.env.REACT_APP_ENDPOINT_USERS;
@@ -17,12 +18,6 @@ export const Home = () => {
 
   useEffect(() => {
     const fetchTasks = async () => {
-      // if (!userId) {
-      //   console.warn('No hay usuario autenticado, redirigiendo al login...');
-      //   navigate('/login');
-      //   return;
-      // }
-
       try {
         const response = await api.get(`${usersEndpoint}/${userId}/tasks?page=${pagination.page}&limit=${pagination.limit}`);
         const data = response?.data?.data || [];
@@ -54,11 +49,11 @@ export const Home = () => {
   const handlePrevPage = () => {
     if (pagination.page > 1) {
       setPagination((prev) => ({ ...prev, page: prev.page - 1 }));
-}
+    }
   };
 
   return (
-    <div className="home-container">
+    <div className="view-container">
       <div className="home-form">
         <div className="home-header">
           <Title title="TAREAS" />
@@ -83,17 +78,7 @@ export const Home = () => {
           ))}
         </ul>
 
-        <div className="home-pagination">
-          <button disabled={pagination.page === 1} onClick={handlePrevPage} className="home-page-btn">
-            ← <span className="home-pagination-label">Anterior</span>
-          </button>
-          <span>
-            Página {pagination.page} de {pagination.last_page}
-          </span>
-          <button disabled={pagination.page === pagination.last_page} onClick={handleNextPage} className="home-page-btn">
-            <span className="home-pagination-label">Siguiente</span> →
-          </button>
-        </div>
+        <Pagination page={pagination.page} lastPage={pagination.last_page} onPrev={handlePrevPage} onNext={handleNextPage} />
       </div>
     </div>
   );

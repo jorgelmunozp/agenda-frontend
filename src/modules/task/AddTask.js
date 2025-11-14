@@ -1,5 +1,6 @@
 import Swal from 'sweetalert2';
 import { api } from '../../services/api/api';
+import './AddTask.scss';
 
 const usersEndpoint = process.env.REACT_APP_ENDPOINT_USERS;
 
@@ -34,8 +35,8 @@ export const AddTask = () => {
       </div>
     `,
     focusConfirm: false,
-    confirmButtonText: 'Crear',
-    customClass: { confirmButton: 'home-accept-btn' },
+    confirmButtonText: 'Guardar',
+    customClass: { confirmButton: 'addTask-accept-btn' },
     preConfirm: () => {
       const nameTask = document.getElementById('swal-name').value;
       const dateTask = document.getElementById('swal-date').value;

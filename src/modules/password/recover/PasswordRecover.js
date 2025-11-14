@@ -60,7 +60,7 @@ export const PasswordRecover = () => {
   };
 
   return (
-    <div className="recover-container">
+    <div className="view-container">
       <div className="recover-form">
         <Title title="RECUPERAR CONTRASEÑA" />
 

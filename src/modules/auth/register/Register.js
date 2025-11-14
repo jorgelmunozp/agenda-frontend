@@ -66,7 +66,7 @@ const handleRegister = async () => {
   };
 
   return (
-    <div className="register-container">
+    <div className="view-container">
       <div className="register-form">
         <Title title="REGISTRARSE" />
 

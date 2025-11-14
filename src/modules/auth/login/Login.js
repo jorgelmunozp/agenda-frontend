@@ -81,7 +81,7 @@ export const Login = () => {
   };
 
   return (
-    <div className="login-container">
+    <div className="view-container">
       <div className="login-form">
         <Title title="INICIAR SESION" />
 

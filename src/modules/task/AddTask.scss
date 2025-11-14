@@ -1,0 +1,11 @@
+@import '../../assets/styles/scss/mixins/colors';
+
+.addTask-accept-btn {
+  background-color: $black-color !important;
+  color: $white-color;
+  width: 100%;
+  border-radius: 8px;
+  margin-left: 35px;
+  margin-right: 35px;
+  padding: 16px 12px;
+}

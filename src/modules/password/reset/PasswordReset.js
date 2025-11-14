@@ -45,7 +45,7 @@ export const PasswordReset = () => {
   };
 
   return (
-    <div className="reset-container">
+    <div className="view-container">
       <div className="reset-form">
         <Title title="CREAR NUEVA CONTRASEÑA" />
 

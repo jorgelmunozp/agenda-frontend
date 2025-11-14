@@ -2,15 +2,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
 @import './assets/styles/scss/mixins/colors.scss';
 
-.App {
-  text-align: center;
+.App { text-align: center; }
+
+.view-container {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  min-height: 85vh;
+  background-color: $bg-color;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
 }
 
 // Sweetalert button container
-.swal2-actions {
-  width: 100%;
-}
-
+.swal2-actions { width: 100%; }         // Button container     
+.swal2-input { border-radius: 12px; }
 
   // Loader Global
 .loader-overlay,
@@ -44,6 +51,4 @@
   color: $white-color;
 }
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
+@keyframes spin { to { transform: rotate(360deg); } }
