@@ -19,4 +19,11 @@
       background-color: $black-color; 
       transform: translateY(-2px);
     }
+
+    &:disabled {
+      background-color: $lightgray-color;
+      color: darken($lightgray-color, 40%);
+      cursor: not-allowed;
+      transform: none;
+    }
   }
