@@ -2,14 +2,15 @@
 
 .label {
     text-align: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 17.5px;
+    padding-bottom: 17.5px;
 
     span {
         font-family: 'Itim';
-        font-size: 1.25rem;
+        font-size: 1.125rem;
         font-weight: 300;
         color: $white-color;
         margin: 0;
+        text-shadow: 0px 1px 0px #000;
     }
 }

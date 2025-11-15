@@ -1,15 +1,15 @@
 import { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../services/auth/authContext.js';
+import { types } from '../../types/types.js';
+import { api } from '../../services/api/api.js';
+import { Input } from '../../components/input/Input.js';
+import { Label } from '../../components/label/Label.js';
+import { Title } from '../../components/title/Title.js';
+import { Button } from '../../components/button/Button.js';
 import { FiLock } from 'react-icons/fi';
 import { PiUserCircleFill } from 'react-icons/pi';
-import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { Input } from '../../../components/input/Input';
-import { Label } from '../../../components/label/Label';
-import { Title } from '../../../components/title/Title';
-import { api } from '../../../services/api/api.js';
-import { AuthContext } from '../../../services/auth/authContext.js';
-import { types } from '../../../types/types.js';
-import './Login.scss';
 
 const authEndpoint = process.env.REACT_APP_ENDPOINT_AUTH;
 
@@ -27,9 +27,8 @@ export const Login = () => {
         password,
       });
 
-      // Si es exitoso, redirige a home
+      // Si Success, redirige a home y guarda Token en sessionStorage
       if (200 <= response.status && response.status <= 299) {
-        // Guarda en sessionStorage
         sessionStorage.setItem('token', response.data.token);
         sessionStorage.setItem('userId', response.data.id);
 
@@ -81,8 +80,8 @@ export const Login = () => {
   };
 
   return (
-    <div className="view-container">
-      <div className="login-form">
+    <div className="App-container">
+      <div className="App-form">
         <Title title="INICIAR SESION" />
 
         <Label text="Ingresa tu usuario" />
@@ -92,15 +91,9 @@ export const Login = () => {
         <Input Icon={FiLock} value={password} type={'password'} setState={setPassword} />
 
         <br />
-        <button className="login-button" onClick={handleLogin}>
-          Ingresar
-        </button>
-        <button className="login-button" onClick={goToRegister}>
-          Registrarse
-        </button>
-        <button className="login-link-button" onClick={forgotPassword}>
-          ¿Olvidaste tu contraseña?
-        </button>
+        <Button label={'Ingresar'} onClick={handleLogin} />
+        <Button label={'Registrarse'} onClick={goToRegister} />
+        <Button label={'¿Olvidaste tu contraseña?'} onClick={forgotPassword} type={2}/>
       </div>
     </div>
   );

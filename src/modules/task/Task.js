@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { api } from '../../services/api/api';
 import { Title } from '../../components/title/Title';
+import { Button } from '../../components/button/Button.js';
 import { FiStar } from "react-icons/fi";
 import './Task.scss';
 
@@ -43,8 +44,8 @@ export const Task = () => {
   }
 
   return (
-    <div className="task-container">
-      <div className="task-form">
+    <div className="App-container">
+      <div className="App-form">
         <div className="task-header">
           <div>
             <FiStar size={50} strokeWidth={1} />
@@ -65,9 +66,7 @@ export const Task = () => {
             <p>Cargando tarea...</p>
           )}
         </div>
-        <button className="task-button" onClick={goToHome}>
-          Regresar
-        </button>
+        <Button label={'Regresar'} onClick={goToHome} />
       </div>
     </div>
   );

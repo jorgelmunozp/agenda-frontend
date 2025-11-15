@@ -1,0 +1,22 @@
+  
+  @import '../../assets/styles/scss/mixins/colors';
+  
+  .button {
+    background-color: $button-color;
+    color: $white-color;
+    border: none;
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover { 
+      background-color: $black-color; 
+      transform: translateY(-2px);
+    }
+  }

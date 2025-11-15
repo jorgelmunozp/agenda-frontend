@@ -1,11 +1,11 @@
-import { Title } from '../../../components/title/Title';
 import { Label } from '../../../components/label/Label';
+import { Title } from '../../../components/title/Title';
 import './AboutUs.scss';
 
 export const AboutUs = () => {
   return (
-    <div className="view-container">
-      <div className="aboutUs-form">
+    <div className="App-container">
+      <div className="App-form">
         <Title title="NOSOTROS" />
         <div className="aboutUs-content">
           <p>Somos una app pensada para estudiantes</p>
@@ -16,6 +16,6 @@ export const AboutUs = () => {
       </div>
     </div>
   );
-}
+};
 
 export default AboutUs;

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { FiPlus, FiStar } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
-import { Title } from '../../components/title/Title';
 import { Pagination } from '../../components/pagination/Pagination';
+import { Title } from '../../components/title/Title';
 import { api } from '../../services/api/api';
 import { AddTask } from '../task/AddTask';
 import './Home.scss';
@@ -53,7 +53,7 @@ export const Home = () => {
   };
 
   return (
-    <div className="view-container">
+    <div className="App-container">
       <div className="home-form">
         <div className="home-header">
           <Title title="TAREAS" />

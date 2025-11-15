@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { FiLock } from 'react-icons/fi';
 import { useNavigate, useParams } from 'react-router-dom';
+import { api } from '../../services/api/api.js';
+import { Title } from '../../components/title/Title.js';
+import { Label } from '../../components/label/Label.js';
+import { Input } from '../../components/input/Input.js';
+import { Button } from '../../components/button/Button.js';
+import { FiLock } from 'react-icons/fi';
 import Swal from 'sweetalert2';
-import { Input } from '../../../components/input/Input';
-import { Label } from '../../../components/label/Label';
-import { Title } from '../../../components/title/Title';
-import { api } from '../../../services/api/api';
-import './/PasswordReset.scss';
 
 const passwordUpdateEndpoint = process.env.REACT_APP_ENDPOINT_PASSWORD_UPDATE;
 
@@ -45,20 +45,16 @@ export const PasswordReset = () => {
   };
 
   return (
-    <div className="view-container">
-      <div className="reset-form">
+    <div className="App-container">
+      <div className="App-form">
         <Title title="CREAR NUEVA CONTRASEÑA" />
 
         <Label text="Contraseña" />
         <Input Icon={FiLock} type={'password'} value={password} setState={setPassword} />
 
         <br />
-        <button className="reset-button" onClick={handleReset}>
-          Confirmar
-        </button>
-        <button className="reset-button" onClick={handleCancel}>
-          Cancelar
-        </button>
+        <Button label={'Confirmar'} onClick={handleReset} />
+        <Button label={'Cancelar'} onClick={handleCancel} />
       </div>
     </div>
   );

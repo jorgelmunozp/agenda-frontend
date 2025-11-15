@@ -2,19 +2,26 @@
 @import '../../assets/styles/scss/mixins/screen';
 
 .header {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: $bg-color;
     color: white;
-    height: 15vh;
+    top: 0;
+    // height: 15vh;
+    height: 70px;
+    width: 100%;
     font-family: 'Carter One';
     text-align: center;
-    border-bottom: 8px solid darken($bg-color, 90%);
-    padding-top: 3vh;
     text-shadow: 0px 1px 0px #000;
+    border-bottom: 7px solid darken($bg-color, 90%);   // Linea horizontal inferior
+    z-index: 1000;
 
-    @include screen-md { 
-        height: 10vh; 
-        border-bottom: 6px solid darken($bg-color, 90%);
-    }
+    // @include screen-sm { 
+    //     height: 10vh; 
+    //     border-bottom: 6px solid darken($bg-color, 90%);
+    // }
 
     h1 {
         margin: 0;
@@ -23,6 +30,4 @@
     }
 }
 
-.u-letter {
-    color: $u-color;
-}
+.u-letter { color: $u-color; }

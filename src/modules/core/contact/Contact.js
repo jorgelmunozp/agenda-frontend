@@ -1,11 +1,11 @@
-import { Title } from '../../../components/title/Title';
 import { Label } from '../../../components/label/Label';
+import { Title } from '../../../components/title/Title';
 import './Contact.scss';
 
 export const Contact = () => {
   return (
-    <div className="view-container">
-      <div className="contact-form">
+    <div className="App-container">
+      <div className="App-form">
         <Title title="CONTACTOS" />
         <div className="contact-content">
           <br />
@@ -39,6 +39,6 @@ export const Contact = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Contact;

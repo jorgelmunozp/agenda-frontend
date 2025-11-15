@@ -4,7 +4,6 @@
 .home-form {
   display: flex;
   flex-direction: column;
-  border-radius: 8px;
   color: $white-color;
   background-color: $bg-color;
   text-align: center;
@@ -44,48 +43,6 @@
     margin: 0;
     text-align: left;
   } 
-
-  .home-input {
-    margin-bottom: 20px;
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    &:focus {
-      outline: none;
-      border-color: #007BFF; /* color al enfocar */
-      box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
-    }
-  }
-
-  .home-button {
-    font-size: 22px;
-    margin-bottom: 10px;
-    border: 1px solid #2C2C2C;
-    border-radius: 20px;
-    cursor: pointer;
-    color: #fff;
-    background-color: $button-color;
-    padding: 12px;
-    transition: 0.2s;
-
-    &:hover {
-      opacity: 0.9;
-    }
-  }
-
-  .home-link-button {
-    background-color: $black-color;
-    border: 1px solid #C00F0C;
-    border-radius: 20px;
-    cursor: pointer;
-    color: $white-color;
-    margin-top: 5px;
-    text-decoration: underline;
-    font-size: 14px;
-    text-decoration: none;
-    padding: 12px;
-  }
 
   .home-list {
     display: flex;
