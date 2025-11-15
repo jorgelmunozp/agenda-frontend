@@ -53,32 +53,33 @@ export const Home = () => {
   };
 
   return (
-    <div className="App-container">
-      <div className="home-form">
+    <div className="App-container logged">
+      <div className="App-form">
         <div className="home-header">
           <Title title="TAREAS" />
           <button onClick={AddTask}>
             <FiPlus />
           </button>
         </div>
+        <div className="home-container">
+          <ul>
+            {tasks.map((task, index) => (
+              <div key={index} className="home-list">
+                <FiStar />
+                <button onClick={() => handleOpenTask(task.id)} className="home-task-item">
+                  <li>{task.task.name}</li>
+                  <li>
+                    <span>
+                      {task.task.date} - {task.task.time}
+                    </span>
+                  </li>
+                </button>
+              </div>
+            ))}
+          </ul>
 
-        <ul>
-          {tasks.map((task, index) => (
-            <div key={index} className="home-list">
-              <FiStar />
-              <button onClick={() => handleOpenTask(task.id)} className="home-task-item">
-                <li>{task.task.name}</li>
-                <li>
-                  <span>
-                    {task.task.date} - {task.task.time}
-                  </span>
-                </li>
-              </button>
-            </div>
-          ))}
-        </ul>
-
-        <Pagination page={pagination.page} lastPage={pagination.last_page} onPrev={handlePrevPage} onNext={handleNextPage} />
+          <Pagination page={pagination.page} lastPage={pagination.last_page} onPrev={handlePrevPage} onNext={handleNextPage} />
+        </div>
       </div>
     </div>
   );

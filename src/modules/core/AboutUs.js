@@ -1,10 +1,9 @@
-import { Label } from '../../../components/label/Label';
-import { Title } from '../../../components/title/Title';
-import './AboutUs.scss';
+import { Label } from '../../components/label/Label';
+import { Title } from '../../components/title/Title';
 
 export const AboutUs = () => {
   return (
-    <div className="App-container">
+    <div className="App-container logged">
       <div className="App-form">
         <Title title="NOSOTROS" />
         <div className="aboutUs-content">

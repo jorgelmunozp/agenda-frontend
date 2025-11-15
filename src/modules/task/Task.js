@@ -48,7 +48,7 @@ export const Task = () => {
       <div className="App-form">
         <div className="task-header">
           <div>
-            <FiStar size={50} strokeWidth={1} />
+            <FiStar className='task-icon' strokeWidth={1} />
           </div>
           <div className="task-calendar">
             <p>Fecha de entrega:</p>

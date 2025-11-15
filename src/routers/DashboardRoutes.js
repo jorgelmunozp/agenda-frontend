@@ -1,9 +1,9 @@
-import { Routes, Route } from "react-router-dom";
+import { Route, Routes } from 'react-router-dom';
 import { AppMenu } from '../components/menu/AppMenu.js';
+import { AboutUs } from '../modules/core/AboutUs.js';
+import { Contact } from '../modules/core/Contact.js';
 import { Home } from '../modules/home/Home.js';
-import { Task } from '../modules/task/Task.js'
-import { AboutUs } from '../modules/core/aboutus/AboutUs.js';
-import { Contact } from '../modules/core/contact/Contact.js';
+import { Task } from '../modules/task/Task.js';
 
 export const DashboardRoutes = () => {
   return (
@@ -21,6 +21,6 @@ export const DashboardRoutes = () => {
       </div>
     </>
   );
-}
+};
 
 export default DashboardRoutes;

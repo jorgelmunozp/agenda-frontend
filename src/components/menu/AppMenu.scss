@@ -12,21 +12,27 @@
 /* === Botón Hamburguesa === */
 .bm-burger-button {
   position: fixed;
-  width: 1.25rem;
-  height: 0.9rem;
-  top: 5.5vh;
-  left: 20px;
-  filter: drop-shadow(0px 1px 0px #000);
+  width: 1.125rem;
+  height: 0.8rem;
+  top: 3.5vh;
+  left: 25px;
+  filter: drop-shadow(0px 1px 0px $white-color);
+
+  @include screen-md { left: 20px; }
+  @include screen-sm { left: 10px; }
 }
 
 /* color del ícono hamburguesa */
 .bm-burger-bars {
-  background: #fff;
+  background: $black-color;
+  height: 17.5% !important;
+  border-radius: 20px;
 }
 
 /* efecto al pasar el mouse */
-.bm-burger-bars-hover {
-  background: #000;
+.bm-burger-bars-hover { 
+  background: $primary-color; 
+  transform: translateY(-2px);
 }
 
 /* Ocultamos la X nativa de react-burger-menu */
@@ -39,10 +45,11 @@
 
 /* === fondo del menú === */
 .bm-menu {
-  background: #ddd;
+  background: $lightgray-color;
   padding: 1.5em 1.5em;
   font-size: 1.2em;
   position: relative;
+  top: 6px;       // Altura de la linea horizontal del header
 }
 
 /* overlay del fondo oscuro */
@@ -61,7 +68,7 @@
 .bm-title {
   font-family: 'Itim', cursive;
   color: $black-color;
-  text-shadow: 0px 1px 0px #fff;
+  text-shadow: 0px 1px 0px $white-color;
 }
 
 .bm-close {
@@ -75,7 +82,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  filter: drop-shadow(0px 1px 0px #fff);
+  filter: drop-shadow(0px 1px 0px $white-color);
 
   &:hover {
     color: $bg-color;
@@ -98,7 +105,7 @@
   padding: 12px 0;
   text-decoration: none;
   font-family: 'Itim', cursive;
-  text-shadow: 0px 1px 0px #fff;
+  text-shadow: 0px 1px 0px $white-color;
   transition: all 0.3s ease;
   background: transparent;
   border: none;

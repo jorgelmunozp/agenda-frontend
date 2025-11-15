@@ -4,6 +4,7 @@ import { slide as Menu } from 'react-burger-menu';
 import { FiHome, FiUser, FiPhone, FiLogOut, FiX } from 'react-icons/fi';
 import { AuthContext } from '../../services/auth/authContext.js';
 import { types } from '../../types/types.js';
+import { Logo } from '../logo/Logo.js';
 import './AppMenu.scss';
 
 export const AppMenu = () => {
@@ -35,7 +36,7 @@ export const AppMenu = () => {
   return (
     <Menu left isOpen={isOpen} onStateChange={handleStateChange}>
       <div className="bm-header">
-        <span className="bm-title">Menú</span>
+        <Logo color={iconColor} />
         <button className="bm-close" onClick={closeMenu} aria-label="Cerrar menú">
           <FiX />
         </button>
