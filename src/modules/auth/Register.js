@@ -85,7 +85,7 @@ export const Register = () => {
         <Input Icon={FiLock} value={password} type={'password'} setState={setPassword} />
 
         <br />
-        <Button label={loading ? 'Registrando...' : 'Crear cuenta'} onClick={handleRegister} />
+        <Button label={loading ? 'Registrando...' : 'Crear cuenta'} onClick={handleRegister} disabled={loading} />
         <Button label={'Cancelar'} onClick={handleCancel} />
       </div>
     </div>

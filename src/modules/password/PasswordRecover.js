@@ -72,7 +72,7 @@ export const PasswordRecover = () => {
         <Input Icon={FiAtSign} type={'text'} value={email} setState={setEmail} />
 
         <br />
-        <Button label={loading ? 'Enviando...' : 'Enviar enlace'} onClick={handleRecover} />
+        <Button label={loading ? 'Enviando...' : 'Enviar enlace'} onClick={handleRecover} disabled={loading} />
         <Button label={'Cancelar'} onClick={handleCancel} />
       </div>
     </div>

@@ -12,7 +12,7 @@ const passwordUpdateEndpoint = process.env.REACT_APP_ENDPOINT_PASSWORD_UPDATE;
 
 export const PasswordReset = () => {
   const navigate = useNavigate();
-  const { token } = useParams(); // obtiene el token de la URL
+  const { token } = useParams();      // obtiene el token de la URL
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -57,7 +57,7 @@ export const PasswordReset = () => {
         <Input Icon={FiLock} type={'password'} value={password} setState={setPassword} />
 
         <br />
-        <Button label={loading ? 'Actualizando...' : 'Confirmar'} onClick={handleReset} />
+        <Button label={loading ? 'Actualizando...' : 'Confirmar'} onClick={handleReset} disabled={loading} />
         <Button label={'Cancelar'} onClick={handleCancel} />
       </div>
     </div>

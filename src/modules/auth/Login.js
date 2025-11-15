@@ -95,7 +95,7 @@ export const Login = () => {
         <Input Icon={FiLock} value={password} type={'password'} setState={setPassword} />
 
         <br />
-        <Button label={loading ? 'Cargando...' : 'Ingresar'} onClick={handleLogin} />
+        <Button label={loading ? 'Cargando...' : 'Ingresar'} onClick={handleLogin} disabled={loading} />
         <Button label={'Registrarse'} onClick={goToRegister} />
         <Button label={'¿Olvidaste tu contraseña?'} onClick={forgotPassword} type={2} />
       </div>
