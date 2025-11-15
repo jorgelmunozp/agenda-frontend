@@ -1,9 +1,9 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { Header } from '../components/header/Header.js';
-import { Login } from '../modules/auth/Login.js';
-import { Register } from '../modules/auth/Register.js';
-import { PasswordRecover } from '../modules/password/PasswordRecover.js';
-import { PasswordReset } from '../modules/password/PasswordReset.js';
+import { Login } from '../views/auth/Login.js';
+import { Register } from '../views/auth/Register.js';
+import { PasswordRecover } from '../views/password/PasswordRecover.js';
+import { PasswordReset } from '../views/password/PasswordReset.js';
 import { DashboardRoutes } from './DashboardRoutes.js';
 import { PrivateRoute } from './PrivateRoute.js';
 import { PublicRoute } from './PublicRoute.js';

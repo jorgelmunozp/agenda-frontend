@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { api } from '../../services/api/api';
-import { Title } from '../../components/title/Title';
-import { AddTask } from '../task/AddTask';
-import { Pagination } from '../../components/pagination/Pagination';
-import { Loading } from '../../components/loading/Loading.js';
 import { FiPlus, FiStar } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
+import { Loading } from '../../components/loading/Loading.js';
+import { Pagination } from '../../components/pagination/Pagination.js';
+import { Title } from '../../components/title/Title.js';
+import { api } from '../../services/api/api.js';
+import { AddTask } from '../task/AddTask.js';
 import './Home.scss';
 
 const usersEndpoint = process.env.REACT_APP_ENDPOINT_USERS;
@@ -57,7 +57,9 @@ export const Home = () => {
   };
 
   // fallback
-  if (loading) { return <Loading label={'Cargando tareas...'} />; }
+  if (loading) {
+    return <Loading label={'Cargando tareas...'} />;
+  }
 
   return (
     <div className="App-container logged">

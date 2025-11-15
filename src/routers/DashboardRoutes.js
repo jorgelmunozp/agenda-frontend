@@ -1,9 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
 import { AppMenu } from '../components/menu/AppMenu.js';
-import { AboutUs } from '../modules/core/AboutUs.js';
-import { Contact } from '../modules/core/Contact.js';
-import { Home } from '../modules/home/Home.js';
-import { Task } from '../modules/task/Task.js';
+import { AboutUs } from '../views/core/AboutUs.js';
+import { Contact } from '../views/core/Contact.js';
+import { Home } from '../views/home/Home.js';
+import { Task } from '../views/task/Task.js';
 
 export const DashboardRoutes = () => {
   return (

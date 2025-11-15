@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { FiStar } from 'react-icons/fi';
 import { useNavigate, useParams } from 'react-router-dom';
-import { api } from '../../services/api/api';
-import { Title } from '../../components/title/Title';
 import { Button } from '../../components/button/Button.js';
 import { Loading } from '../../components/loading/Loading.js';
-import { FiStar } from "react-icons/fi";
+import { Title } from '../../components/title/Title.js';
+import { api } from '../../services/api/api.js';
 import './Task.scss';
 
 const usersEndpoint = process.env.REACT_APP_ENDPOINT_USERS;
@@ -35,14 +35,16 @@ export const Task = () => {
   };
 
   // fallback
-  if (loading) { return ( <Loading label={'Cargando tarea...'} /> ); }
+  if (loading) {
+    return <Loading label={'Cargando tarea...'} />;
+  }
 
   return (
     <div className="App-container">
       <div className="App-form">
         <div className="task-header">
           <div>
-            <FiStar className='task-icon' strokeWidth={1} />
+            <FiStar className="task-icon" strokeWidth={1} />
           </div>
           <div className="task-calendar">
             <p>Fecha de entrega:</p>
@@ -64,6 +66,6 @@ export const Task = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Task;

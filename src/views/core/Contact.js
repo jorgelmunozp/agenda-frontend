@@ -5,7 +5,7 @@ export const Contact = () => {
   return (
     <div className="App-container logged">
       <div className="App-form">
-        <Title title="CONTACTOS" />
+        <Title title="CONTACTO" />
         <div className="contact-content">
           <br />
           <Label text="Juan Fernando Muñoz" />
