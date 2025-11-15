@@ -20,6 +20,11 @@
 
   @include screen-md { left: 20px; }
   @include screen-sm { left: 10px; }
+
+  &:hover { 
+    color: $primary-color; 
+    transform: translateY(-2px);
+  }
 }
 
 /* color del ícono hamburguesa */
@@ -27,12 +32,6 @@
   background: $black-color;
   height: 17.5% !important;
   border-radius: 20px;
-}
-
-/* efecto al pasar el mouse */
-.bm-burger-bars-hover { 
-  background: $primary-color; 
-  transform: translateY(-2px);
 }
 
 /* Ocultamos la X nativa de react-burger-menu */
@@ -115,6 +114,6 @@
 }
 
 .menu-item:hover {
-  color: $bg-color;
+  color: $primary-color;
   transform: translateX(5px);
 }
