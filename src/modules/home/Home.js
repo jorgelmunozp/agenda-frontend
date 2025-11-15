@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import { FiPlus, FiStar } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
-import { Pagination } from '../../components/pagination/Pagination';
-import { Title } from '../../components/title/Title';
 import { api } from '../../services/api/api';
+import { Title } from '../../components/title/Title';
 import { AddTask } from '../task/AddTask';
+import { Pagination } from '../../components/pagination/Pagination';
+import { Loading } from '../../components/loading/Loading.js';
+import { FiPlus, FiStar } from 'react-icons/fi';
 import './Home.scss';
 
 const usersEndpoint = process.env.REACT_APP_ENDPOINT_USERS;
@@ -13,6 +14,7 @@ export const Home = () => {
   const navigate = useNavigate();
   const [tasks, setTasks] = useState([]);
   const [pagination, setPagination] = useState({ last_page: 2, limit: 5, page: 1, total: 0 });
+  const [loading, setLoading] = useState(true);
 
   const userId = sessionStorage.getItem('userId');
 
@@ -30,6 +32,8 @@ export const Home = () => {
       } catch (error) {
         console.error('Error fetching data: ', error.response?.data || error.message);
         setTasks([]);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -51,6 +55,9 @@ export const Home = () => {
       setPagination((prev) => ({ ...prev, page: prev.page - 1 }));
     }
   };
+
+  // fallback
+  if (loading) { return <Loading label={'Cargando tareas...'} />; }
 
   return (
     <div className="App-container logged">

@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { api } from '../../services/api/api';
 import { Title } from '../../components/title/Title';
 import { Button } from '../../components/button/Button.js';
+import { Loading } from '../../components/loading/Loading.js';
 import { FiStar } from "react-icons/fi";
 import './Task.scss';
 
@@ -34,14 +35,7 @@ export const Task = () => {
   };
 
   // fallback
-  if (loading) {
-    return (
-      <div className="loader-overlay loader-overlay--home">
-        <div className="loader-spinner"></div>
-        <p className="loader-text">Cargando...</p>
-      </div>
-    );
-  }
+  if (loading) { return ( <Loading label={'Cargando tarea...'} /> ); }
 
   return (
     <div className="App-container">

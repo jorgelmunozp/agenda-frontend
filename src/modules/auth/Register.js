@@ -17,8 +17,10 @@ export const Register = () => {
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleRegister = async () => {
+    setLoading(true);
     try {
       const response = await api.post(usersEndpoint, {
         name,
@@ -56,6 +58,8 @@ export const Register = () => {
           content: 'swal-content',
         },
       });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -81,7 +85,7 @@ export const Register = () => {
         <Input Icon={FiLock} value={password} type={'password'} setState={setPassword} />
 
         <br />
-        <Button label={'Crear cuenta'} onClick={handleRegister} />
+        <Button label={loading ? 'Registrando...' : 'Crear cuenta'} onClick={handleRegister} />
         <Button label={'Cancelar'} onClick={handleCancel} />
       </div>
     </div>

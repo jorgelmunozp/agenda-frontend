@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { api } from '../../services/api/api.js';
-import { Title } from '../../components/title/Title.js';
-import { Label } from '../../components/label/Label.js';
-import { Input } from '../../components/input/Input.js';
-import { Button } from '../../components/button/Button.js';
 import { FiLock } from 'react-icons/fi';
+import { useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { Button } from '../../components/button/Button.js';
+import { Input } from '../../components/input/Input.js';
+import { Label } from '../../components/label/Label.js';
+import { Title } from '../../components/title/Title.js';
+import { api } from '../../services/api/api.js';
 
 const passwordUpdateEndpoint = process.env.REACT_APP_ENDPOINT_PASSWORD_UPDATE;
 
@@ -14,8 +14,10 @@ export const PasswordReset = () => {
   const navigate = useNavigate();
   const { token } = useParams(); // obtiene el token de la URL
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleReset = async () => {
+    setLoading(true);
     try {
       const response = await api.patch(passwordUpdateEndpoint, {
         token,
@@ -37,6 +39,8 @@ export const PasswordReset = () => {
         icon: 'error',
       });
       console.error('Error user login: ', error.response?.data || error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -53,7 +57,7 @@ export const PasswordReset = () => {
         <Input Icon={FiLock} type={'password'} value={password} setState={setPassword} />
 
         <br />
-        <Button label={'Confirmar'} onClick={handleReset} />
+        <Button label={loading ? 'Actualizando...' : 'Confirmar'} onClick={handleReset} />
         <Button label={'Cancelar'} onClick={handleCancel} />
       </div>
     </div>

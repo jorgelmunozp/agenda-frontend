@@ -13,8 +13,10 @@ const passwordRecoverEndpoint = process.env.REACT_APP_ENDPOINT_PASSWORD_RECOVER;
 export const PasswordRecover = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleRecover = async () => {
+    setLoading(true);
     try {
       const response = await api.post(passwordRecoverEndpoint, { email }, { headers: { 'x-client': 'web' } });
 
@@ -52,6 +54,8 @@ export const PasswordRecover = () => {
           content: 'swal-content',
         },
       });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -68,7 +72,7 @@ export const PasswordRecover = () => {
         <Input Icon={FiAtSign} type={'text'} value={email} setState={setEmail} />
 
         <br />
-        <Button label={'Enviar enlace'} onClick={handleRecover} />
+        <Button label={loading ? 'Enviando...' : 'Enviar enlace'} onClick={handleRecover} />
         <Button label={'Cancelar'} onClick={handleCancel} />
       </div>
     </div>

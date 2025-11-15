@@ -1,5 +1,5 @@
-import Swal from 'sweetalert2';
 import { api } from '../../services/api/api';
+import Swal from 'sweetalert2';
 
 const usersEndpoint = process.env.REACT_APP_ENDPOINT_USERS;
 
@@ -61,20 +61,12 @@ export const AddTask = () => {
         if (response.status >= 200 && response.status < 300) {
           Swal.fire({
             icon: 'success',
-            title: 'Tarea creada',
-            html: `
-              <div style="text-align: left; margin-left: 5vw;">
-                <p><strong>Nombre:</strong> ${result.value.nameTask}</p>
-                <p><strong>Fecha:</strong> ${result.value.dateTask}</p>
-                <p><strong>Hora:</strong> ${result.value.timeTask}</p>
-                <p><strong>Mensaje:</strong> ${result.value.messageTask}</p>
-              </div>
-            `,
+            title: 'Tarea registrada',
           });
         }
       } catch (error) {
         Swal.fire({ text: error.response?.data?.error?.message || error.message, icon: 'error' });
-        console.error('Error al crear tarea:', error);
+        console.error('Error registrando tarea:', error);
       }
     }
   });

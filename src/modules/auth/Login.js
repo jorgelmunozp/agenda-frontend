@@ -19,8 +19,10 @@ export const Login = () => {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleLogin = async () => {
+    setLoading(true);
     try {
       const response = await api.post(authEndpoint, {
         username,
@@ -68,6 +70,8 @@ export const Login = () => {
           content: 'swal-content',
         },
       });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -91,9 +95,9 @@ export const Login = () => {
         <Input Icon={FiLock} value={password} type={'password'} setState={setPassword} />
 
         <br />
-        <Button label={'Ingresar'} onClick={handleLogin} />
+        <Button label={loading ? 'Cargando...' : 'Ingresar'} onClick={handleLogin} />
         <Button label={'Registrarse'} onClick={goToRegister} />
-        <Button label={'¿Olvidaste tu contraseña?'} onClick={forgotPassword} type={2}/>
+        <Button label={'¿Olvidaste tu contraseña?'} onClick={forgotPassword} type={2} />
       </div>
     </div>
   );
