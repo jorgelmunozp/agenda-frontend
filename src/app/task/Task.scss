@@ -1,5 +1,5 @@
-@import '../../assets/styles/scss/mixins/colors';
-@import '../../assets/styles/scss/mixins/screen';
+@import '../../assets/styles/colors';
+@import '../../assets/styles/screen';
 
 .task-header {
   display: flex;
@@ -14,12 +14,12 @@
     width: 50px;
     height: 50px;
 
-    @include screen-md { 
+    @include screen-md {
       width: 40px;
       height: 40px;
     }
 
-    @include screen-sm { 
+    @include screen-sm {
       width: 30px;
       height: 30px;
     }
@@ -34,7 +34,7 @@
     padding-left: 10px;
     padding-right: 10px;
 
-    p{
+    p {
       padding: 0;
       margin-top: 5px;
       margin-bottom: 10px;
@@ -59,10 +59,16 @@
     text-align: justify;
     text-align-last: center;
     font-style: italic;
-    font-size: calc(1.25rem + .5vw);
+    font-size: calc(1.25rem + 0.5vw);
 
-    @include desktop { font-size: calc(2rem + .5vw); }  
-    @include screen-md { font-size: calc(1.5rem + .5vw); }  
-    @include screen-sm { font-size: calc(1.125rem + .5vw); }
+    @include desktop {
+      font-size: calc(2rem + 0.5vw);
+    }
+    @include screen-md {
+      font-size: calc(1.5rem + 0.5vw);
+    }
+    @include screen-sm {
+      font-size: calc(1.125rem + 0.5vw);
+    }
   }
 }

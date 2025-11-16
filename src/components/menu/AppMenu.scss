@@ -1,12 +1,16 @@
-@import '../../assets/styles/scss/mixins/colors';
-@import '../../assets/styles/scss/mixins/screen';
+@import '../../assets/styles/colors';
+@import '../../assets/styles/screen';
 
 /* === Estilos base del menú === */
 .bm-menu-wrap {
   width: 40% !important;
 
-  @include screen-md { width: 60% !important; }
-  @include screen-sm { width: 90% !important; }
+  @include screen-md {
+    width: 60% !important;
+  }
+  @include screen-sm {
+    width: 90% !important;
+  }
 }
 
 /* === Botón Hamburguesa === */
@@ -18,11 +22,15 @@
   left: 25px;
   filter: drop-shadow(0px 1px 0px $white-color);
 
-  @include screen-md { left: 20px; }
-  @include screen-sm { left: 10px; }
+  @include screen-md {
+    left: 20px;
+  }
+  @include screen-sm {
+    left: 10px;
+  }
 
-  &:hover { 
-    color: $primary-color; 
+  &:hover {
+    color: $primary-color;
     transform: translateY(-2px);
   }
 }
@@ -48,7 +56,7 @@
   padding: 1.5em 1.5em;
   font-size: 1.2em;
   position: relative;
-  top: 6px;       // Altura de la linea horizontal del header
+  top: 6px; // Altura de la linea horizontal del header
 }
 
 /* overlay del fondo oscuro */

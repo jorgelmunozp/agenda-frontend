@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { api } from '../../services/api/api.js';
-import { Title } from '../../components/title/Title.js';
-import { Label } from '../../components/label/Label.js';
-import { Input } from '../../components/input/Input.js';
-import { Button } from '../../components/button/Button.js';
 import { FiAtSign } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { Button } from '../../components/button/Button.js';
+import { Input } from '../../components/input/Input.js';
+import { Label } from '../../components/label/Label.js';
+import { Title } from '../../components/title/Title.js';
+import { api } from '../../services/api/api.js';
 
 const passwordRecoverEndpoint = process.env.REACT_APP_ENDPOINT_PASSWORD_RECOVER;
 
@@ -44,7 +44,7 @@ export const PasswordRecover = () => {
 
       // Mostrar el popup
       Swal.fire({
-        title: 'Faltan Datos',
+        title: 'Error',
         html: errorHtml,
         icon: 'error',
         confirmButtonText: 'Aceptar',

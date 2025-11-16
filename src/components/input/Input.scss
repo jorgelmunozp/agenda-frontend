@@ -1,4 +1,4 @@
-@import '../../assets/styles/scss/mixins/colors';
+@import '../../assets/styles/colors';
 
 .input-with-icon {
   position: relative;
@@ -7,9 +7,9 @@
 
   .input-icon {
     position: absolute;
-    left: 10px;
+    left: 15px;
     font-size: 1.25rem;
-    color: $black-color
+    color: $black-color;
   }
 
   input {
@@ -21,5 +21,4 @@
     padding-top: 0.8rem;
     padding-bottom: 0.8rem;
   }
-
 }

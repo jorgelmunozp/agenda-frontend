@@ -1,13 +1,13 @@
 import { useState } from 'react';
+import { FiAtSign, FiLock, FiUser } from 'react-icons/fi';
+import { PiUserCircleFill } from 'react-icons/pi';
 import { useNavigate } from 'react-router-dom';
-import { api } from '../../services/api/api.js';
+import Swal from 'sweetalert2';
+import { Button } from '../../components/button/Button.js';
 import { Input } from '../../components/input/Input.js';
 import { Label } from '../../components/label/Label.js';
 import { Title } from '../../components/title/Title.js';
-import { Button } from '../../components/button/Button.js';
-import { FiAtSign, FiLock, FiUser } from 'react-icons/fi';
-import { PiUserCircleFill } from 'react-icons/pi';
-import Swal from 'sweetalert2';
+import { api } from '../../services/api/api.js';
 
 const usersEndpoint = process.env.REACT_APP_ENDPOINT_USERS;
 
@@ -46,9 +46,9 @@ export const Register = () => {
       }
       errorHtml += '</ul>';
 
-      // Alerta de faltan datos
+      // Alerta de Error
       Swal.fire({
-        title: 'Faltan Datos',
+        title: 'Error',
         html: errorHtml,
         icon: 'error',
         confirmButtonText: 'Aceptar',

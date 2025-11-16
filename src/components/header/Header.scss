@@ -1,55 +1,61 @@
-@import '../../assets/styles/scss/mixins/colors';
-@import '../../assets/styles/scss/mixins/screen';
+@import '../../assets/styles/colors';
+@import '../../assets/styles/screen';
 
 .header {
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    top: 0;
-    // height: 70px;
-    width: 100%;
-    font-family: 'Carter One';
-    text-align: center;
-    border-bottom: 6px solid darken($bg-color, 90%);   // Linea horizontal inferior
-    z-index: 1000;
-    transition: all 0.3s ease;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  top: 0;
+  // height: 70px;
+  width: 100%;
+  font-family: 'Carter One';
+  text-align: center;
+  border-bottom: 6px solid darken($bg-color, 90%); // Linea horizontal inferior
+  z-index: 1000;
+  transition: all 0.3s ease;
 
-    &.background-public { 
-        background-color: $bg-color; 
-        text-shadow: 0px 1px 0px $black-color; 
-        height: 70px;
-    }
-    &.background-logged { 
-        background-color: $lightgray-color; 
-        text-shadow: 0px 1px 0px $white-color;
-        height: 50px;
-    }
+  &.background-public {
+    background-color: $bg-color;
+    text-shadow: 0px 1px 0px $black-color;
+    height: 70px;
+  }
+  &.background-logged {
+    background-color: $lightgray-color;
+    text-shadow: 0px 1px 0px $white-color;
+    height: 50px;
+  }
 
-    h1 {
-        margin: 0;
-        padding: 0;
-        
-        &.color-public { 
-            color: $white-color; 
-            font-size: 1.65rem; 
-        }
-        &.color-logged { 
-            color: $black-color; 
-            font-size: 1.125rem; 
-        }
-    }
+  h1 {
+    margin: 0;
+    padding: 0;
 
-    .header-logo {
-        color: $primary-color;
-        position: absolute;
-        right: 25px;
-        filter: drop-shadow(0px 1px 0px $white-color);
-
-        @include screen-md { right: 20px; }
-        @include screen-sm { right: 10px; }
+    &.color-public {
+      color: $white-color;
+      font-size: 1.65rem;
     }
+    &.color-logged {
+      color: $black-color;
+      font-size: 1.125rem;
+    }
+  }
+
+  .header-logo {
+    color: $primary-color;
+    position: absolute;
+    right: 25px;
+    filter: drop-shadow(0px 1px 0px $white-color);
+
+    @include screen-md {
+      right: 20px;
+    }
+    @include screen-sm {
+      right: 10px;
+    }
+  }
 }
 
-.u-letter { color: $u-color; }
+.u-letter {
+  color: $u-color;
+}

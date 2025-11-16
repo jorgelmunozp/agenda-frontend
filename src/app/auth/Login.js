@@ -1,15 +1,15 @@
 import { useContext, useState } from 'react';
+import { FiLock } from 'react-icons/fi';
+import { PiUserCircleFill } from 'react-icons/pi';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../services/auth/authContext.js';
-import { types } from '../../types/types.js';
-import { api } from '../../services/api/api.js';
+import Swal from 'sweetalert2';
+import { Button } from '../../components/button/Button.js';
 import { Input } from '../../components/input/Input.js';
 import { Label } from '../../components/label/Label.js';
 import { Title } from '../../components/title/Title.js';
-import { Button } from '../../components/button/Button.js';
-import { FiLock } from 'react-icons/fi';
-import { PiUserCircleFill } from 'react-icons/pi';
-import Swal from 'sweetalert2';
+import { api } from '../../services/api/api.js';
+import { AuthContext } from '../../services/auth/authContext.js';
+import { types } from '../../services/auth/types/types.js';
 
 const authEndpoint = process.env.REACT_APP_ENDPOINT_AUTH;
 
@@ -60,7 +60,7 @@ export const Login = () => {
 
       // Mostrar el popup
       Swal.fire({
-        title: 'Faltan Datos',
+        title: 'Error',
         html: errorHtml,
         icon: 'error',
         confirmButtonText: 'Aceptar',

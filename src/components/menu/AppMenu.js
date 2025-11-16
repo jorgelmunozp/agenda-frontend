@@ -1,19 +1,19 @@
 import { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
-import { FiHome, FiUser, FiPhone, FiLogOut, FiX } from 'react-icons/fi';
+import { FiHome, FiLogOut, FiPhone, FiUser, FiX } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../services/auth/authContext.js';
-import { types } from '../../types/types.js';
+import { types } from '../../services/auth/types/types.js';
 import { Logo } from '../logo/Logo.js';
 import './AppMenu.scss';
+
+const iconColor = '#5c3b99';
 
 export const AppMenu = () => {
   const { dispatch } = useContext(AuthContext);
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
-
-  const iconColor = '#5c3b99';
-
+  
   const handleStateChange = (state) => {
     setIsOpen(state.isOpen);
   };

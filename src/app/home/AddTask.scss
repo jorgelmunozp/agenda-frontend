@@ -1,0 +1,84 @@
+@import '../../assets/styles/colors';
+
+/* Overlay a pantalla completa, con scroll interno */
+.add-task-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.35);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  z-index: 9000;
+  overflow-y: auto;
+}
+
+/* Tarjeta principal del modal */
+.add-task-modal {
+  background-color: #f9fafb;
+  border-radius: 16px;
+  padding: 0 10px;
+  width: 100%;
+  max-width: 700px;
+}
+
+/* Contenedor del formulario */
+.add-task-form {
+  width: 98%;
+  margin: 0 auto;
+}
+
+/* Cada campo */
+.add-task-field { width: 100%; }
+
+/* Label*/
+.add-task-field {
+    .label { 
+        text-align: left; 
+
+        span {
+            color: $black-color;
+            font-size: 1rem;
+        }
+    }
+}
+
+/* Inputs / textarea */
+.add-task-field { 
+    input, textarea {
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 14px;
+        border: 1px solid $lightgray-color;
+        background-color: $white-color;
+        border-radius: 12px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    textarea {
+        min-height: 120px;
+        resize: vertical;
+        text-align: center;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+}
+
+/* Panel de botones */
+.add-task-actions {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center; 
+  gap: 8px;
+  width: 100%;
+
+  button {  background-color: $black-color; }
+}

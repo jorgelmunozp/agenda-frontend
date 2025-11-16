@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
-@import './assets/styles/scss/mixins/colors.scss';
-@import './assets/styles/scss/mixins/screen.scss';
+@import './assets/styles/colors.scss';
+@import './assets/styles/screen.scss';
 
 .App {
   text-align: center;
@@ -19,8 +19,8 @@
   padding-bottom: 20px;
   transition: all 0.3s ease;
 
-  &.logged { 
-    margin-top: 50px; 
+  &.logged {
+    margin-top: 50px;
     padding-bottom: 0;
   }
 }
@@ -38,17 +38,26 @@
   padding-right: 5vw;
   padding-bottom: 30px;
 
-  @include screen-sm { 
+  @include screen-sm {
     padding-left: 1vw;
-    padding-right: 1vw; 
+    padding-right: 1vw;
   }
 }
 
-// Sweetalert 
-.swal2-icon { width: 5em; height: 5em; }
-.swal2-title { font-size: 1.325rem; }
-.swal2-html-container { font-size: 16px; }
-.swal2-actions { width: 100%; }             // Buttons container
+// Sweetalert
+.swal2-icon {
+  width: 5em;
+  height: 5em;
+}
+.swal2-title {
+  font-size: 1.325rem;
+}
+.swal2-html-container {
+  font-size: 16px;
+}
+.swal2-actions {
+  width: 100%;
+} // Buttons container
 .swal2-confirm {
   background-color: $black-color !important;
   color: $white-color;
@@ -58,7 +67,8 @@
   margin-right: 35px;
   padding: 16px 12px;
 }
-.swal2-input, .swal2-textarea { 
+.swal2-input,
+.swal2-textarea {
   font-size: 16px;
-  border-radius: 12px; 
+  border-radius: 12px;
 }

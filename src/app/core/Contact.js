@@ -6,8 +6,7 @@ export const Contact = () => {
     <div className="App-container logged">
       <div className="App-form">
         <Title title="CONTACTO" />
-        <div className="contact-content">
-          <br />
+        <div>
           <Label text="Juan Fernando Muñoz" />
           <span>
             juanferm0410@javerianacali.edu.co
