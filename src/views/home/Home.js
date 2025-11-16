@@ -5,7 +5,7 @@ import { Loading } from '../../components/loading/Loading.js';
 import { Pagination } from '../../components/pagination/Pagination.js';
 import { Title } from '../../components/title/Title.js';
 import { api } from '../../services/api/api.js';
-import { AddTask } from '../task/AddTask.js';
+import { AddTask } from './AddTask.js';
 import './Home.scss';
 
 const usersEndpoint = process.env.REACT_APP_ENDPOINT_USERS;
