@@ -28,7 +28,7 @@ export const AddTask = () => {
         <input id="swal-time" type="time" class="swal2-input" placeholder="Hora" style="width: 100%; margin: 0;">
       </div>
 
-      <div style="margin-bottom: 10px;">
+      <div style="margin-bottom: 0;">
         <label for="swal-message" style="display: block; font-family:'Itim'; text-align: left; padding-bottom:15px;">Mensaje</label>
         <textarea id="swal-message" class="swal2-textarea" placeholder="Mensaje" style="width: 100%; margin: 0;"></textarea>
       </div>
