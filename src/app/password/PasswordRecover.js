@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { FiAtSign } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
 import { Button } from '../../components/button/Button.js';
 import { Input } from '../../components/input/Input.js';
 import { Label } from '../../components/label/Label.js';
 import { Title } from '../../components/title/Title.js';
+import { AppAlert } from '../../components/alert/AppAlert';
 import { api } from '../../services/api/api.js';
+import { useAlert } from '../../hooks/useAlert';
 
 const passwordRecoverEndpoint = process.env.REACT_APP_ENDPOINT_PASSWORD_RECOVER;
 
@@ -15,45 +16,30 @@ export const PasswordRecover = () => {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
 
+  const { alertState, showError, showSuccess, hideAlert } = useAlert();
+
   const handleRecover = async () => {
     setLoading(true);
     try {
       const response = await api.post(passwordRecoverEndpoint, { email }, { headers: { 'x-client': 'web' } });
 
-      // Si es exitoso, redirige a home
       if (200 <= response.status && response.status <= 299) {
         console.log(response.data);
-        Swal.fire({
-          text: response.data.message,
-          icon: 'success',
-        });
+
+        // Mensaje de éxito usando AppAlert
+        showSuccess('Recuperar contraseña', response.data.message);
+
+        // Redirige al login (igual que antes)
         navigate('/login');
       }
     } catch (error) {
       console.error('Error recovering password: ', error.response?.data || error.message);
 
-      // Extraer los mensajes del error (array o string)
-      const messages = Array.isArray(error.response?.data?.error?.message) ? error.response.data.error.message : [error.response?.data?.error?.message || error.message];
+      const rawMsg = error.response?.data?.error?.message;
+      const messages = Array.isArray(rawMsg) ? rawMsg : [rawMsg || error.message];
 
-      // Generar HTML con viñetas
-      let errorHtml = '<ul style="padding-left: 20px; text-align: justify; margin: 0;">';
-      for (const msg of messages) {
-        errorHtml += `<li style="margin-bottom: 6px; color: #d33; font-family: Poppins, sans-serif;">${msg}</li>`;
-      }
-      errorHtml += '</ul>';
-
-      // Mostrar el popup
-      Swal.fire({
-        title: 'Error',
-        html: errorHtml,
-        icon: 'error',
-        confirmButtonText: 'Aceptar',
-        customClass: {
-          popup: 'home-swal-popup',
-          title: 'swal-title',
-          content: 'swal-content',
-        },
-      });
+      // Mostramos el error con AppAlert (acepta array de mensajes)
+      showError('Error', messages);
     } finally {
       setLoading(false);
     }
@@ -64,18 +50,22 @@ export const PasswordRecover = () => {
   };
 
   return (
-    <div className="App-container">
-      <div className="App-form">
-        <Title title="RECUPERAR CONTRASEÑA" />
+    <>
+      <div className="App-container">
+        <div className="App-form">
+          <Title title="RECUPERAR CONTRASEÑA" />
 
-        <Label text="Correo" />
-        <Input Icon={FiAtSign} type={'text'} value={email} setState={setEmail} />
+          <Label text="Correo" />
+          <Input Icon={FiAtSign} type="text" value={email} setState={setEmail} />
 
-        <br />
-        <Button label={loading ? 'Enviando...' : 'Enviar enlace'} onClick={handleRecover} disabled={loading} />
-        <Button label={'Cancelar'} onClick={handleCancel} />
+          <br />
+          <Button label={loading ? 'Enviando...' : 'Enviar enlace'} onClick={handleRecover} disabled={loading} />
+          <Button label="Cancelar" onClick={handleCancel} />
+        </div>
       </div>
-    </div>
+
+      <AppAlert visible={alertState.visible} type={alertState.type} title={alertState.title} message={alertState.message} onClose={hideAlert} />
+    </>
   );
 };
 

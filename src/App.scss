@@ -43,32 +43,3 @@
     padding-right: 1vw;
   }
 }
-
-// Sweetalert
-.swal2-icon {
-  width: 5em;
-  height: 5em;
-}
-.swal2-title {
-  font-size: 1.325rem;
-}
-.swal2-html-container {
-  font-size: 16px;
-}
-.swal2-actions {
-  width: 100%;
-} // Buttons container
-.swal2-confirm {
-  background-color: $black-color !important;
-  color: $white-color;
-  width: 100%;
-  border-radius: 8px;
-  margin-left: 35px;
-  margin-right: 35px;
-  padding: 16px 12px;
-}
-.swal2-input,
-.swal2-textarea {
-  font-size: 16px;
-  border-radius: 12px;
-}

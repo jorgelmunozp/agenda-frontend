@@ -2,22 +2,26 @@ import { useState } from 'react';
 import { FiAtSign, FiLock, FiUser } from 'react-icons/fi';
 import { PiUserCircleFill } from 'react-icons/pi';
 import { useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
 import { Button } from '../../components/button/Button.js';
 import { Input } from '../../components/input/Input.js';
 import { Label } from '../../components/label/Label.js';
 import { Title } from '../../components/title/Title.js';
+import { AppAlert } from '../../components/alert/AppAlert';
 import { api } from '../../services/api/api.js';
+import { useAlert } from '../../hooks/useAlert';
 
 const usersEndpoint = process.env.REACT_APP_ENDPOINT_USERS;
 
 export const Register = () => {
   const navigate = useNavigate();
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const { alertState, showError, hideAlert } = useAlert();
 
   const handleRegister = async () => {
     setLoading(true);
@@ -29,35 +33,17 @@ export const Register = () => {
         password,
       });
 
-      // Si es exitoso, redirige a home
       if (200 <= response.status && response.status <= 299) {
         navigate('/home');
       }
     } catch (error) {
       console.error('Error creating user: ', error.response?.data || error.message);
 
-      // Extraer los mensajes del error
-      const messages = error.response?.data?.error?.message || [error.message];
+      const rawMsg = error?.response?.data?.error?.message;
+      const messages = Array.isArray(rawMsg) ? rawMsg : [rawMsg || error.message];
 
-      // Generar HTML con viñetas
-      let errorHtml = '<ul style="padding-left: 20px; text-align: justify; margin: 0;">';
-      for (const msg of messages) {
-        errorHtml += `<li style="margin-bottom: 6px; color: #d33; font-family: Poppins, sans-serif;">${msg}</li>`;
-      }
-      errorHtml += '</ul>';
-
-      // Alerta de Error
-      Swal.fire({
-        title: 'Error',
-        html: errorHtml,
-        icon: 'error',
-        confirmButtonText: 'Aceptar',
-        customClass: {
-          popup: 'home-swal-popup',
-          title: 'swal-title',
-          content: 'swal-content',
-        },
-      });
+      // AppAlert soporta array, así que le pasamos los mensajes directo
+      showError('Error', messages);
     } finally {
       setLoading(false);
     }
@@ -68,27 +54,31 @@ export const Register = () => {
   };
 
   return (
-    <div className="App-container">
-      <div className="App-form">
-        <Title title="REGISTRARSE" />
+    <>
+      <div className="App-container">
+        <div className="App-form">
+          <Title title="REGISTRARSE" />
 
-        <Label text="Nombre" />
-        <Input Icon={FiUser} type={'text'} value={name} setState={setName} />
+          <Label text="Nombre" />
+          <Input Icon={FiUser} type="text" value={name} setState={setName} />
 
-        <Label text="Correo" />
-        <Input Icon={FiAtSign} type={'text'} value={email} setState={setEmail} />
+          <Label text="Correo" />
+          <Input Icon={FiAtSign} type="text" value={email} setState={setEmail} />
 
-        <Label text="Usuario" />
-        <Input Icon={PiUserCircleFill} type={'text'} value={username} setState={setUsername} />
+          <Label text="Usuario" />
+          <Input Icon={PiUserCircleFill} type="text" value={username} setState={setUsername} />
 
-        <Label text="Contraseña" />
-        <Input Icon={FiLock} value={password} type={'password'} setState={setPassword} />
+          <Label text="Contraseña" />
+          <Input Icon={FiLock} value={password} type="password" setState={setPassword} />
 
-        <br />
-        <Button label={loading ? 'Registrando...' : 'Crear cuenta'} onClick={handleRegister} disabled={loading} />
-        <Button label={'Cancelar'} onClick={handleCancel} />
+          <br />
+          <Button label={loading ? 'Registrando...' : 'Crear cuenta'} onClick={handleRegister} disabled={loading} />
+          <Button label="Cancelar" onClick={handleCancel} />
+        </div>
       </div>
-    </div>
+
+      <AppAlert visible={alertState.visible} type={alertState.type} title={alertState.title} message={alertState.message} onClose={hideAlert} />
+    </>
   );
 };
 
