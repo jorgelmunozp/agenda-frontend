@@ -148,7 +148,8 @@ export const AddTask = ({ visible = false, onClose, onSaved, userId: propUserId 
                             <Button label="Guardar" type={1} onClick={handleNewTask} disabled={saving} />
                           </div>
                         </div>
-                      )}
+                      )
+            }
           </div>
         </div>
       )}
