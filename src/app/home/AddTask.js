@@ -24,7 +24,7 @@ export const AddTask = ({ visible = false, onClose, onSaved, userId: propUserId 
 
   const userId = propUserId || sessionStorage.getItem('userId');
 
-  // Bloquear scroll del body cuando el modal está abierto
+  // Bloquea scroll del body cuando el modal está abierto
   useEffect(() => {
     if (typeof document === 'undefined') return;
 
