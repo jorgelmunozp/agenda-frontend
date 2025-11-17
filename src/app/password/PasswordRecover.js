@@ -8,6 +8,7 @@ import { Title } from '../../components/title/Title.js';
 import { AppAlert } from '../../components/alert/AppAlert';
 import { api } from '../../services/api/api.js';
 import { useAlert } from '../../hooks/useAlert';
+import { errorLines } from '../../helpers/errorLines.js';
 
 const passwordRecoverEndpoint = process.env.REACT_APP_ENDPOINT_PASSWORD_RECOVER;
 
@@ -18,27 +19,27 @@ export const PasswordRecover = () => {
 
   const { alertState, showError, showSuccess, hideAlert } = useAlert();
 
-  const handleRecover = async () => {
+  const sendEmail = async () => {
     setLoading(true);
     try {
       const response = await api.post(passwordRecoverEndpoint, { email }, { headers: { 'x-client': 'web' } });
 
       if (200 <= response.status && response.status <= 299) {
-        console.log(response.data);
-
-        // Mensaje de éxito usando AppAlert
-        showSuccess('Recuperar contraseña', response.data.message);
-
-        // Redirige al login (igual que antes)
-        navigate('/login');
+        // NO navegamos aquí
+        // Mostramos alerta con botón que navega al login
+        showSuccess('Recuperar contraseña', response.data.message, [
+          {
+            text: 'Ir al login',
+            onPress: () => navigate('/login'),
+          },
+        ]);
       }
     } catch (error) {
       console.error('Error recovering password: ', error.response?.data || error.message);
 
-      const rawMsg = error.response?.data?.error?.message;
-      const messages = Array.isArray(rawMsg) ? rawMsg : [rawMsg || error.message];
+      const rawMsg = error?.response?.data?.error?.message || error.message;
+      const messages = errorLines(rawMsg);
 
-      // Mostramos el error con AppAlert (acepta array de mensajes)
       showError('Error', messages);
     } finally {
       setLoading(false);
@@ -59,12 +60,12 @@ export const PasswordRecover = () => {
           <Input Icon={FiAtSign} type="text" value={email} setState={setEmail} />
 
           <br />
-          <Button label={loading ? 'Enviando...' : 'Enviar enlace'} onClick={handleRecover} disabled={loading} />
+          <Button label={loading ? 'Enviando...' : 'Enviar enlace'} onClick={sendEmail} disabled={loading} />
           <Button label="Cancelar" onClick={handleCancel} />
         </div>
       </div>
 
-      <AppAlert visible={alertState.visible} type={alertState.type} title={alertState.title} message={alertState.message} onClose={hideAlert} />
+      <AppAlert visible={alertState.visible} type={alertState.type} title={alertState.title} message={alertState.message} buttons={alertState.buttons} onClose={hideAlert} />
     </>
   );
 };

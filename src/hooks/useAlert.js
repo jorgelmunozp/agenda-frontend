@@ -1,30 +1,41 @@
 import { useState, useCallback } from 'react';
 
 export const useAlert = (initialState = {}) => {
-  const [alertState, setAlertState] = useState({
+  const [state, setState] = useState({
     visible: false,
     type: 'info',
     title: '',
     message: '',
+    buttons: [],
     ...initialState,
   });
 
-  const showAlert = useCallback(({ type = 'info', title = '', message = '' } = {}) => {
-    setAlertState({ visible: true, type, title, message });
+  const showAlert = useCallback(({ type = 'info', title = '', message = '', buttons } = {}) => {
+    const safeButtons = Array.isArray(buttons) && buttons.length ? buttons : [{ text: 'Aceptar' }];
+
+    setState({
+      visible: true,
+      type,
+      title,
+      message,
+      buttons: safeButtons,
+    });
   }, []);
 
   const hideAlert = useCallback(() => {
-    setAlertState((prev) => ({ ...prev, visible: false }));
+    setState((prev) => ({ ...prev, visible: false }));
   }, []);
 
-  const showError = useCallback((title, message) => showAlert({ type: 'error', title, message }), [showAlert]);
+  const showError = useCallback((title, message, buttons) => showAlert({ type: 'error', title, message, buttons }), [showAlert]);
 
-  const showSuccess = useCallback((title, message) => showAlert({ type: 'success', title, message }), [showAlert]);
+  const showSuccess = useCallback((title, message, buttons) => showAlert({ type: 'success', title, message, buttons }), [showAlert]);
 
-  const showInfo = useCallback((title, message) => showAlert({ type: 'info', title, message }), [showAlert]);
+  const showInfo = useCallback((title, message, buttons) => showAlert({ type: 'info', title, message, buttons }), [showAlert]);
 
+  // compatibilidad: puedes usar alertState o alert
   return {
-    alertState,
+    alert: state,
+    alertState: state,
     showAlert,
     hideAlert,
     showError,

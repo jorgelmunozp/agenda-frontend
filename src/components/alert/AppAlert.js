@@ -8,14 +8,24 @@ const Icon = {
   info: { symbol: 'i', iconColor: '#3b82f6', ring: '#3b82f6', accent: '#3b82f6' },
 };
 
-export const AppAlert = ({ visible, title, message, onClose, type = 'info' }) => {
+export const AppAlert = ({ visible, title, message, onClose, type = 'info', buttons }) => {
   if (!visible) return null;
 
   const icon = Icon[type] || Icon.info;
   const lines = errorLines(message);
 
+  // fallback si no hay buttons
+  const actions = Array.isArray(buttons) && buttons.length ? buttons : [{ text: 'Aceptar' }];
+
   const handleClose = () => {
     if (typeof onClose === 'function') onClose();
+  };
+
+  const handleButtonClick = (btn) => {
+    if (typeof btn?.onPress === 'function') {
+      btn.onPress();
+    }
+    handleClose();
   };
 
   return (
@@ -45,7 +55,9 @@ export const AppAlert = ({ visible, title, message, onClose, type = 'info' }) =>
         )}
 
         <div className="app-alert-actions">
-          <Button label="Aceptar" onClick={handleClose} type={1} />
+          {actions.map((btn, i) => (
+            <Button key={i} label={btn.text || 'Aceptar'} type={1} onClick={() => handleButtonClick(btn)} />
+          ))}
         </div>
       </div>
     </div>
