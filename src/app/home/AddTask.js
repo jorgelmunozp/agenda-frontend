@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
-import { api } from '../../services/api/api';
+import { useEffect, useState } from 'react';
+import { AppAlert } from '../../components/alert/AppAlert';
+import { Button } from '../../components/button/Button';
 import { Input } from '../../components/input/Input';
 import { Label } from '../../components/label/Label';
-import { Button } from '../../components/button/Button';
-import { AppAlert } from '../../components/alert/AppAlert';
 import { Loading } from '../../components/loading/Loading';
 import { useAlert } from '../../hooks/useAlert';
+import { api } from '../../services/api/api';
 import './AddTask.scss';
 
 const usersEndpoint = process.env.REACT_APP_ENDPOINT_USERS;
@@ -20,7 +20,7 @@ export const AddTask = ({ visible = false, onClose, onSaved, userId: propUserId 
 
   const [saving, setSaving] = useState(false);
 
-  const { alertState, showError, showSuccess, hideAlert } = useAlert();
+  const { alert, showError, showSuccess, hideAlert } = useAlert();
 
   const userId = propUserId || sessionStorage.getItem('userId');
 
@@ -125,7 +125,7 @@ export const AddTask = ({ visible = false, onClose, onSaved, userId: propUserId 
         </div>
       )}
 
-      <AppAlert visible={alertState.visible} type={alertState.type} title={alertState.title} message={alertState.message} onClose={hideAlert} />
+      <AppAlert visible={alert.visible} type={alert.type} title={alert.title} message={alert.message} onClose={hideAlert} />
     </>
   );
 };

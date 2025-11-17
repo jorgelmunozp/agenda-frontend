@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useCallback, useState } from 'react';
 
 export const useAlert = (initialState = {}) => {
   const [state, setState] = useState({
@@ -32,10 +32,8 @@ export const useAlert = (initialState = {}) => {
 
   const showInfo = useCallback((title, message, buttons) => showAlert({ type: 'info', title, message, buttons }), [showAlert]);
 
-  // compatibilidad: puedes usar alertState o alert
   return {
     alert: state,
-    alertState: state,
     showAlert,
     hideAlert,
     showError,

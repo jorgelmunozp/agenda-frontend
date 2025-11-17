@@ -2,15 +2,15 @@ import { useContext, useState } from 'react';
 import { FiLock } from 'react-icons/fi';
 import { PiUserCircleFill } from 'react-icons/pi';
 import { useNavigate } from 'react-router-dom';
+import { AppAlert } from '../../components/alert/AppAlert';
 import { Button } from '../../components/button/Button.js';
 import { Input } from '../../components/input/Input.js';
 import { Label } from '../../components/label/Label.js';
 import { Title } from '../../components/title/Title.js';
-import { AppAlert } from '../../components/alert/AppAlert';
+import { useAlert } from '../../hooks/useAlert';
 import { api } from '../../services/api/api.js';
 import { AuthContext } from '../../services/auth/authContext.js';
 import { types } from '../../services/auth/types/types.js';
-import { useAlert } from '../../hooks/useAlert';
 
 const authEndpoint = process.env.REACT_APP_ENDPOINT_AUTH;
 
@@ -22,7 +22,7 @@ export const Login = () => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const { alertState, showError, hideAlert } = useAlert();
+  const { alert, showError, hideAlert } = useAlert();
 
   const handleLogin = async () => {
     setLoading(true);
@@ -87,7 +87,7 @@ export const Login = () => {
         </div>
       </div>
 
-      <AppAlert visible={alertState.visible} type={alertState.type} title={alertState.title} message={alertState.message} onClose={hideAlert} />
+      <AppAlert visible={alert.visible} type={alert.type} title={alert.title} message={alert.message} onClose={hideAlert} />
     </>
   );
 };
