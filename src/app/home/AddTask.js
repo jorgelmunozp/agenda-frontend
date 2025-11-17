@@ -46,16 +46,6 @@ export const AddTask = ({ visible = false, onClose, onSaved, userId: propUserId 
   };
 
   const handleNewTask = async () => {
-    if (!userId) {
-      showError('Sin usuario', 'No hay usuario autenticado.');
-      return;
-    }
-
-    if (!item.name || !item.date || !item.time || !item.message) {
-      showError('Formulario incompleto', 'Por favor completa todos los campos.');
-      return;
-    }
-
     try {
       setSaving(true);
 
