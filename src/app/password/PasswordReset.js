@@ -29,13 +29,12 @@ export const PasswordReset = () => {
       });
 
       if (200 <= response.status && response.status <= 299) {
-        console.log(response.data.message);
-
-        // Mensaje de éxito con AppAlert
-        showSuccess('Actualizar contraseña', response.data.message);
-
-        // Navegar al login
-        navigate('/login');
+        showSuccess('Contraseña actualizada', response.data.message, [
+          {
+            text: 'Ir al login',
+            onPress: () => navigate('/login'),
+          },
+        ]);
       }
     } catch (error) {
       console.error('Error user login: ', error.response?.data || error.message);
@@ -68,7 +67,7 @@ export const PasswordReset = () => {
         </div>
       </div>
 
-      <AppAlert visible={alertState.visible} type={alertState.type} title={alertState.title} message={alertState.message} onClose={hideAlert} />
+      <AppAlert visible={alertState.visible} type={alertState.type} title={alertState.title} message={alertState.message} buttons={alertState.buttons} onClose={hideAlert} />
     </>
   );
 };

@@ -19,15 +19,14 @@ export const PasswordRecover = () => {
 
   const { alertState, showError, showSuccess, hideAlert } = useAlert();
 
-  const sendEmail = async () => {
+  const handleSendEmail = async () => {
     setLoading(true);
     try {
       const response = await api.post(passwordRecoverEndpoint, { email }, { headers: { 'x-client': 'web' } });
 
       if (200 <= response.status && response.status <= 299) {
-        // NO navegamos aquí
-        // Mostramos alerta con botón que navega al login
-        showSuccess('Recuperar contraseña', response.data.message, [
+        // Navega cuando el usuario pulse el botón del alert
+        showSuccess('Enlace enviado', response.data.message, [
           {
             text: 'Ir al login',
             onPress: () => navigate('/login'),
@@ -60,7 +59,7 @@ export const PasswordRecover = () => {
           <Input Icon={FiAtSign} type="text" value={email} setState={setEmail} />
 
           <br />
-          <Button label={loading ? 'Enviando...' : 'Enviar enlace'} onClick={sendEmail} disabled={loading} />
+          <Button label={loading ? 'Enviando...' : 'Enviar enlace'} onClick={handleSendEmail} disabled={loading} />
           <Button label="Cancelar" onClick={handleCancel} />
         </div>
       </div>
