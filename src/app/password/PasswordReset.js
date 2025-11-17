@@ -31,8 +31,8 @@ export const PasswordReset = () => {
       if (200 <= response.status && response.status <= 299) {
         showSuccess('Listo', response.data.message, [
           {
-            text: 'Ir al login',
-            onPress: () => navigate('/login'),
+            text: 'Cerrar',
+            onPress: () => window.close(),
           },
         ]);
       }
