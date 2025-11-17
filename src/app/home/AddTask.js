@@ -117,7 +117,7 @@ export const AddTask = ({ visible = false, onClose, onSaved, userId: propUserId 
                 </div>
 
                 <div className="add-task-actions">
-                  <Button label="Guardar" type={1} onClick={handleNewTask} disabled={saving} />
+                  <Button label="Guardar" onClick={handleNewTask} disabled={saving} />
                 </div>
               </div>
             )}
