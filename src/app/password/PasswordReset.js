@@ -29,7 +29,7 @@ export const PasswordReset = () => {
       });
 
       if (200 <= response.status && response.status <= 299) {
-        showSuccess('Contraseña actualizada', response.data.message, [
+        showSuccess('Listo', response.data.message, [
           {
             text: 'Ir al login',
             onPress: () => navigate('/login'),
