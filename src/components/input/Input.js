@@ -1,6 +1,6 @@
 import './Input.scss';
 
-export const Input = ({ Icon, type = 'text', value, placeholder = '', setState, multiline = false, rows = 3 }) => {
+export const Input = ({ Icon, type = 'text', value, placeholder = '', setState, multiline = false, rows = 3, autoCapitalize = 'none', autoCorrect = 'off', spellCheck = false }) => {
   const handleChange = (e) => {
     if (typeof setState === 'function') {
       setState(e.target.value);
@@ -11,7 +11,7 @@ export const Input = ({ Icon, type = 'text', value, placeholder = '', setState, 
     return (
       <div className="input-with-icon">
         {Icon ? <Icon className="input-icon" /> : null}
-        <textarea placeholder={placeholder} value={value} rows={rows} onChange={handleChange} />
+        <textarea placeholder={placeholder} value={value} rows={rows} onChange={handleChange} autoCapitalize={autoCapitalize} autoCorrect={autoCorrect} spellCheck={spellCheck} />
       </div>
     );
   }
@@ -19,7 +19,7 @@ export const Input = ({ Icon, type = 'text', value, placeholder = '', setState, 
   return (
     <div className="input-with-icon">
       {Icon ? <Icon className="input-icon" /> : null}
-      <input type={type} placeholder={placeholder} value={value} onChange={handleChange} />
+      <input type={type} placeholder={placeholder} value={value} onChange={handleChange} autoCapitalize={autoCapitalize} autoCorrect={autoCorrect} spellCheck={spellCheck} />
     </div>
   );
 };
