@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { FiAtSign, FiLock, FiUser } from 'react-icons/fi';
 import { PiUserCircleFill } from 'react-icons/pi';
 import { useNavigate } from 'react-router-dom';
@@ -8,12 +8,15 @@ import { Label } from '../../components/label/Label.js';
 import { Title } from '../../components/title/Title.js';
 import { AppAlert } from '../../components/alert/AppAlert';
 import { api } from '../../services/api/api.js';
+import { AuthContext } from '../../services/auth/authContext.js';
+import { types } from '../../services/auth/types/types.js';
 import { useAlert } from '../../hooks/useAlert';
 
 const usersEndpoint = process.env.REACT_APP_ENDPOINT_USERS;
 
 export const Register = () => {
   const navigate = useNavigate();
+  const { dispatch } = useContext(AuthContext);
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -34,6 +37,15 @@ export const Register = () => {
       });
 
       if (200 <= response.status && response.status <= 299) {
+        sessionStorage.setItem('token', response.data.token);
+        sessionStorage.setItem('userId', response.data.id);
+
+        const action = {
+          type: types.login,
+          payload: { name: username },
+        };
+        dispatch(action);
+
         navigate('/home');
       }
     } catch (error) {
